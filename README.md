@@ -1,4 +1,4 @@
-# Android View Animations [![Build Status](https://travis-ci.org/daimajia/AndroidAnimations)](https://travis-ci.org/daimajia/AndroidAnimations)
+# Android View Animations [![Build Status](https://travis-ci.org/daimajia/AndroidViewAnimations.svg)](https://travis-ci.org/daimajia/AndroidAnimations)
 
 One day, I saw [an iOS library](https://github.com/ArtFeel/AFViewShaker), which is a view shaker, it's very beautiful. I think Android also need one, and should be better.
 
