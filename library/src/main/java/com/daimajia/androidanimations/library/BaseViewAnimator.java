@@ -59,7 +59,7 @@ public abstract class BaseViewAnimator {
         return this;
     }
 
-    public BaseViewAnimator setStartDeley(long delay){
+    public BaseViewAnimator setStartDelay(long delay){
         getAnimatorAgent().setStartDelay(delay);
         return this;
     }

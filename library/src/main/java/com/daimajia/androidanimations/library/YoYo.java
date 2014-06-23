@@ -164,11 +164,11 @@ public class YoYo {
     }
 
     public static void play(Techniques name, View target,long delay,long duration){
-        name.getAnimator().setDuration(duration).setStartDeley(delay).animate(target);
+        name.getAnimator().setDuration(duration).setStartDelay(delay).animate(target);
     }
 
     public static void play(Techniques name, View target,long delay,long duration,Interpolator interpolator){
-        name.getAnimator().setDuration(duration).setStartDeley(delay).setInterpolator(interpolator).animate(target);
+        name.getAnimator().setDuration(duration).setStartDelay(delay).setInterpolator(interpolator).animate(target);
     }
 
     public static void play(Techniques name, View target, long delay, long duration, Interpolator interpolator, Animator.AnimatorListener ... listeners){
@@ -178,7 +178,7 @@ public class YoYo {
         }
         animator.setDuration(duration);
         animator.setInterpolator(interpolator);
-        animator.setStartDeley(delay);
+        animator.setStartDelay(delay);
         animator.animate(target);
     }
 }
