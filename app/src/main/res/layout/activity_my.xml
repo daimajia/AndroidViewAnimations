@@ -9,7 +9,7 @@
     tools:context=".MyActivity">
 
     <TextView
-        android:padding="40dp"
+        android:padding="30dp"
         android:textSize="40sp"
         android:id="@+id/hello_world"
         android:text="@string/hello_world"

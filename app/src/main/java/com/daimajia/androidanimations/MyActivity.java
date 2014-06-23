@@ -31,7 +31,7 @@ public class MyActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ((BaseViewAnimator) (view.getTag())).setDuration(800)
                         .setInterpolator(new AccelerateInterpolator())
-                        .anime(mTarget);
+                        .animate(mTarget);
             }
         });
     }

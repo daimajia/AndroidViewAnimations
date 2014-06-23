@@ -23,7 +23,17 @@ public abstract class BaseViewAnimator {
 
     protected abstract void prepare(View target);
 
-    public void anime(View target){
+    public void animate(View target){
+        reset(target);
+        prepare(target);
+        start();
+    }
+
+    /**
+     * reset the view to default status
+     * @param target
+     */
+    public void reset(View target){
         ViewHelper.setAlpha(target,1);
         ViewHelper.setScaleX(target,1);
         ViewHelper.setScaleY(target,1);
@@ -34,10 +44,11 @@ public abstract class BaseViewAnimator {
         ViewHelper.setRotationX(target,0);
         ViewHelper.setPivotX(target,target.getMeasuredWidth()/2.0f);
         ViewHelper.setPivotY(target,target.getMeasuredHeight()/2.0f);
-        prepare(target);
-        start();
     }
 
+    /**
+     * start to animate
+     */
     public void start(){
         mAnimatorSet.setDuration(mDuration);
         mAnimatorSet.start();

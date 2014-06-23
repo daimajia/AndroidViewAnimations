@@ -13,7 +13,7 @@ public class SlideInRightAnimator extends BaseViewAnimator {
     protected void prepare(View target) {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "alpha", 0, 1),
-                ObjectAnimator.ofFloat(target,"translationY",2000,0)
+                ObjectAnimator.ofFloat(target,"translationX",2000,0)
         );
     }
 }

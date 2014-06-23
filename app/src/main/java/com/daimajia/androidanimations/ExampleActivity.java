@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.attention.TadaAnimator;
+import com.daimajia.androidanimations.library.YoYo;
 
-/**
- * Created by daimajia on 14-6-22.
- */
 public class ExampleActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +17,18 @@ public class ExampleActivity extends Activity{
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new TadaAnimator().setDuration(700).anime(findViewById(R.id.edit_area));
+                YoYo.play(YoYo.Techniques.Tada,findViewById(R.id.edit_area),700);
                 t.setText("Wrong password!");
+            }
+        });
+
+        final TextView t2 = (TextView)findViewById(R.id.notice2);
+        t2.setText("Please input your Email and Password");
+        findViewById(R.id.submit2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.play(YoYo.Techniques.Shake,findViewById(R.id.edit_area2));
+                t2.setText("Wrong password!");
             }
         });
     }
