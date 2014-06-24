@@ -33,6 +33,7 @@ import com.daimajia.androidanimations.library.attention.FlashAnimator;
 import com.daimajia.androidanimations.library.attention.PulseAnimator;
 import com.daimajia.androidanimations.library.attention.RubberBandAnimator;
 import com.daimajia.androidanimations.library.attention.ShakeAnimator;
+import com.daimajia.androidanimations.library.attention.StandUpAnimator;
 import com.daimajia.androidanimations.library.attention.SwingAnimator;
 import com.daimajia.androidanimations.library.attention.TadaAnimator;
 import com.daimajia.androidanimations.library.attention.WobbleAnimator;
@@ -96,6 +97,7 @@ public class YoYo {
         Wobble(WobbleAnimator.class),
         Bounce(BounceAnimator.class),
         Tada(TadaAnimator.class),
+        StandUp(StandUpAnimator.class),
 
 
         Hinge(HingeAnimator.class),
