@@ -157,16 +157,16 @@ public class YoYo {
         ZoomOutRight(ZoomOutRightAnimator.class),
         ZoomOutUp(ZoomOutUpAnimator.class);
 
-        private BaseViewAnimator animator;
+        private Class animatorCls;
         private Techniques(Class cls){
-            try{
-                animator = (BaseViewAnimator)cls.newInstance();
-            }catch (Exception e){
-                throw new Error("Error init new animation instance");
-            }
+            animatorCls = cls;
         }
         public BaseViewAnimator getAnimator(){
-            return animator;
+            try{
+                return (BaseViewAnimator) animatorCls.newInstance();
+            }catch (Exception e){
+                throw new Error("Can not init animatorCls instance");
+            }
         }
     };
     public static void play(Techniques name, View target){
