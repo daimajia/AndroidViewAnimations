@@ -47,6 +47,7 @@ import com.daimajia.androidanimations.library.fading_entrances.FadeInAnimator;
 import com.daimajia.androidanimations.library.fading_entrances.FadeInDownAnimator;
 import com.daimajia.androidanimations.library.fading_entrances.FadeInLeftAnimator;
 import com.daimajia.androidanimations.library.fading_entrances.FadeInRightAnimator;
+import com.daimajia.androidanimations.library.fading_entrances.FadeInUpAnimator;
 import com.daimajia.androidanimations.library.fading_exits.FadeOutAnimator;
 import com.daimajia.androidanimations.library.fading_exits.FadeOutDownAnimator;
 import com.daimajia.androidanimations.library.fading_exits.FadeOutLeftAnimator;
@@ -112,6 +113,7 @@ public class YoYo {
         BounceInUp(BounceInUpAnimator.class),
 
         FadeIn(FadeInAnimator.class),
+        FadeInUp(FadeInUpAnimator.class),
         FadeInDown(FadeInDownAnimator.class),
         FadeInLeft(FadeInLeftAnimator.class),
         FadeInRight(FadeInRightAnimator.class),

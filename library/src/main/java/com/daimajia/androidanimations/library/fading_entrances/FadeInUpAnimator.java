@@ -29,12 +29,12 @@ import android.view.View;
 import com.daimajia.androidanimations.library.BaseViewAnimator;
 import com.nineoldandroids.animation.ObjectAnimator;
 
-public class FadeInRightAnimator extends BaseViewAnimator {
+public class FadeInUpAnimator extends BaseViewAnimator {
     @Override
-    public void prepare(View target) {
+    protected void prepare(View target) {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "alpha", 0, 1),
-                ObjectAnimator.ofFloat(target, "translationX", 20, 0)
+                ObjectAnimator.ofFloat(target, "translationY", 20, 0)
         );
     }
 }
