@@ -55,6 +55,7 @@ YoYo.play(YoYo.Techniques.Shake,findViewById(R.id.eidtor));
 
 #### Fade
 `FadeIn`, `FadeInUp`, `FadeInDown`, `FadeInLeft`, `FadeInRight`
+
 `FadeOut`, `FadeOutDown`, `FadeOutLeft`, `FadeOutRight`, `FadeOutUp`
 
 #### Flip
@@ -62,17 +63,25 @@ YoYo.play(YoYo.Techniques.Shake,findViewById(R.id.eidtor));
 
 #### Rotate
 `RotateIn`, `RotateInDownLeft`, `RotateInDownRight`, `RotateInUpLeft`, `RotateInUpRight`
+
 `RotateOut`, `RotateOutDownLeft`, `RotateOutDownRight`, `RotateOutUpLeft`, `RotateOutUpRight`
 
 #### Slide
 `SlideInLeft`, `SlideInRight`, `SlideInUp`, `SlideInDown`
+
 `SlideOutLeft`, `SlideOutRight`, `SlideOutUp`, `SlideOutDown`
 
 #### Zoom
 `ZoomIn`, `ZoomInDown`, `ZoomInLeft`, `ZoomInRight`, `ZoomInUp`
+
 `ZoomOut`, `ZoomOutDown`, `ZoomOutLeft`, `ZoomOutRight`, `ZoomOutUp`
 
 Welcome contribute your amazing animation effect. :-D
+
+#Thanks
+
+- [AFViewShaker](https://github.com/ArtFeel/AFViewShaker)
+- [Animate.css](https://github.com/daneden/animate.css)
 
 #About me
 
