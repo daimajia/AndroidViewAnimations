@@ -16,7 +16,7 @@ So, I started to collect animation effects... and in two days, this project born
 ```groovy
 dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.androidanimations:library:1.0.1@aar'
+    compile 'com.daimajia.androidanimations:library:1.0.3@aar'
 }
 ```
 or Maven
@@ -30,12 +30,12 @@ or Maven
 <dependency>
     <groupId>com.daimajia.androidanimation</groupId>
     <artifactId>library</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <type>apklib</type>
 </dependency>
 ```
 
-## Step2
+## Step 2
 
 Just like play Yo-yo.
 
@@ -44,8 +44,8 @@ YoYo.play(YoYo.Techniques.Shake,findViewById(R.id.eidtor));
 ```
 
 ### Effects
-#### attension
-`Flash`, `Pulse`, `RubberBand`, `Shake`, `Swing`, `Wobble`, `Bounce`, `Tada`
+#### Attension
+`Flash`, `Pulse`, `RubberBand`, `Shake`, `Swing`, `Wobble`, `Bounce`, `Tada`, `StandUp`, `Wave`
 
 #### Special
 `Hinge`, `RollIn`, `RollOut`
@@ -54,7 +54,7 @@ YoYo.play(YoYo.Techniques.Shake,findViewById(R.id.eidtor));
 `BounceIn`, `BounceInDown`, `BounceInLeft`, `BounceInRight`, `BounceInUp`
 
 #### Fade
-`FadeIn`, `FadeInDown`, `FadeInLeft`, `FadeInRight`
+`FadeIn`, `FadeInUp`, `FadeInDown`, `FadeInLeft`, `FadeInRight`
 `FadeOut`, `FadeOutDown`, `FadeOutLeft`, `FadeOutRight`, `FadeOutUp`
 
 #### Flip
