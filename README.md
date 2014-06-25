@@ -40,7 +40,9 @@ or Maven
 Just like play Yo-yo.
 
 ```java
-YoYo.play(YoYo.Techniques.Shake,findViewById(R.id.eidtor));
+YoYo.with(Techniques.Tada)
+    .duration(700)
+    .playOn(findViewById(R.id.edit_area));
 ```
 
 ### Effects
