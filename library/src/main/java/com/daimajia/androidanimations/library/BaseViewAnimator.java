@@ -33,9 +33,10 @@ import com.nineoldandroids.view.ViewHelper;
 
 public abstract class BaseViewAnimator {
 
-    private final int Default_Duration = 1000;
+    public static final long DURATION = 1000;
+
     private AnimatorSet mAnimatorSet;
-    private long mDuration = Default_Duration;
+    private long mDuration = DURATION;
 
     {
         mAnimatorSet = new AnimatorSet();
@@ -44,7 +45,7 @@ public abstract class BaseViewAnimator {
 
     protected abstract void prepare(View target);
 
-    public void animate(View target){
+    public void animate(View target) {
         reset(target);
         prepare(target);
         start();
@@ -52,66 +53,67 @@ public abstract class BaseViewAnimator {
 
     /**
      * reset the view to default status
+     *
      * @param target
      */
-    public void reset(View target){
-        ViewHelper.setAlpha(target,1);
-        ViewHelper.setScaleX(target,1);
-        ViewHelper.setScaleY(target,1);
-        ViewHelper.setTranslationX(target,0);
-        ViewHelper.setTranslationY(target,0);
-        ViewHelper.setRotation(target,0);
-        ViewHelper.setRotationY(target,0);
-        ViewHelper.setRotationX(target,0);
-        ViewHelper.setPivotX(target,target.getMeasuredWidth()/2.0f);
-        ViewHelper.setPivotY(target,target.getMeasuredHeight()/2.0f);
+    public void reset(View target) {
+        ViewHelper.setAlpha(target, 1);
+        ViewHelper.setScaleX(target, 1);
+        ViewHelper.setScaleY(target, 1);
+        ViewHelper.setTranslationX(target, 0);
+        ViewHelper.setTranslationY(target, 0);
+        ViewHelper.setRotation(target, 0);
+        ViewHelper.setRotationY(target, 0);
+        ViewHelper.setRotationX(target, 0);
+        ViewHelper.setPivotX(target, target.getMeasuredWidth() / 2.0f);
+        ViewHelper.setPivotY(target, target.getMeasuredHeight() / 2.0f);
     }
 
     /**
      * start to animate
      */
-    public void start(){
+    public void start() {
         mAnimatorSet.setDuration(mDuration);
         mAnimatorSet.start();
     }
 
-    public BaseViewAnimator setDuration(long duration){
+    public BaseViewAnimator setDuration(long duration) {
         mDuration = duration;
         return this;
     }
 
-    public BaseViewAnimator setStartDelay(long delay){
+    public BaseViewAnimator setStartDelay(long delay) {
         getAnimatorAgent().setStartDelay(delay);
         return this;
     }
 
-    public long getStartDelay(){
+    public long getStartDelay() {
         return mAnimatorSet.getStartDelay();
     }
 
-    public BaseViewAnimator addAnimatorListener(AnimatorListener l){
+    public BaseViewAnimator addAnimatorListener(AnimatorListener l) {
         mAnimatorSet.addListener(l);
         return this;
     }
 
-    public void removeAnimatorListener(AnimatorListener l){
+    public void removeAnimatorListener(AnimatorListener l) {
         mAnimatorSet.removeListener(l);
     }
 
-    public void removeAllListener(){
+    public void removeAllListener() {
         mAnimatorSet.removeAllListeners();
     }
 
-    public BaseViewAnimator setInterpolator(Interpolator interpolator){
+    public BaseViewAnimator setInterpolator(Interpolator interpolator) {
         mAnimatorSet.setInterpolator(interpolator);
         return this;
     }
 
-    public long getDuration(){
+    public long getDuration() {
         return mAnimatorSet.getDuration();
     }
 
-    public AnimatorSet getAnimatorAgent(){
+    public AnimatorSet getAnimatorAgent() {
         return mAnimatorSet;
     }
 
