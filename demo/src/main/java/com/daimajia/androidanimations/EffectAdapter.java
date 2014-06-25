@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.YoYo;
+import com.daimajia.androidanimations.library.Techniques;
 
 public class EffectAdapter extends BaseAdapter {
 
@@ -19,12 +19,12 @@ public class EffectAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return YoYo.Techniques.values().length;
+        return Techniques.values().length;
     }
 
     @Override
     public Object getItem(int position) {
-        return YoYo.Techniques.values()[position].getAnimator();
+        return Techniques.values()[position].getAnimator();
     }
 
     @Override
