@@ -4,6 +4,9 @@ One day, I saw [an iOS library](https://github.com/ArtFeel/AFViewShaker), which 
 
 So, I started to collect animation effects... and in two days, this project born.
 
+### Task
+- I'm implementing [Animation Easing](http://easings.net/) functions, based on [Rober Penner's Easing functions](http://www.robertpenner.com/easing/). I'll make animation much more real! 2014/6/26. If you are also interesting in this, you can help me.
+
 # Demo
 
 ![](http://ww3.sinaimg.cn/mw690/610dc034jw1ehnv2r93jpg20bx0kokjl.gif)
