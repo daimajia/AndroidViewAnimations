@@ -8,7 +8,7 @@ So, I started to collect animation effects... and in two days, this project born
 
 ![](http://ww3.sinaimg.cn/mw690/610dc034jw1ehnv2r93jpg20bx0kokjl.gif)
 
-[Download Demo](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.0/Demo-v1.0.0.apk)
+[Download Demo](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.5/demo-v1.0.5.apk)
 # Usage
 
 ## Step 1
