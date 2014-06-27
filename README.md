@@ -40,11 +40,6 @@ or Maven
 </dependency>
 ```
 
-or using jar:
-
-- [NineOldAndroids-2.4.0](http://search.maven.org/remotecontent?filepath=com/nineoldandroids/library/2.4.0/library-2.4.0.jar)
-- [AndroidViewAnimations-1.0.5](http://search.maven.org/remotecontent?filepath=com/daimajia/androidanimations/library/1.0.5/library-1.0.5.jar)
-
 ## Step 2
 
 Just like play Yo-yo.
