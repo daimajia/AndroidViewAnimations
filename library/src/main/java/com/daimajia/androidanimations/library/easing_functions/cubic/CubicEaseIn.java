@@ -22,29 +22,19 @@
  * SOFTWARE.
  */
 
-package com.daimajia.androidanimations.library.specials;
+package com.daimajia.androidanimations.library.easing_functions.cubic;
 
-import android.view.View;
+import com.daimajia.androidanimations.library.easing_functions.BaseEasingMethod;
 
-import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.daimajia.androidanimations.library.easing_functions.Glider;
-import com.daimajia.androidanimations.library.easing_functions.Skill;
-import com.nineoldandroids.animation.ObjectAnimator;
+public class CubicEaseIn extends BaseEasingMethod{
 
-public class HingeAnimator extends BaseViewAnimator{
-    @Override
-    protected void prepare(View target) {
-        float x = target.getPaddingLeft();
-        float y = target.getPaddingTop();
-        getAnimatorAgent().playTogether(
-                Glider.glide(Skill.SineEaseInOut, 1300, ObjectAnimator.ofFloat(target,"rotation",0,80,60,80,60,60)),
-                ObjectAnimator.ofFloat(target, "translationY", 0, 0, 0, 0, 0, 700),
-                ObjectAnimator.ofFloat(target, "alpha", 1, 1, 1, 1, 1, 0),
-                ObjectAnimator.ofFloat(target, "pivotX", x, x, x, x, x, x),
-                ObjectAnimator.ofFloat(target, "pivotY", y, y, y, y, y, y)
-        );
-
-        setDuration(1300);
+    public CubicEaseIn(float duration) {
+        super(duration);
     }
-}
 
+    @Override
+    public float getInterpolation(float input) {
+        return input * input * input;
+    }
+
+}

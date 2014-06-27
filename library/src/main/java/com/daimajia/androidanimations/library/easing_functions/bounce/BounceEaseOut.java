@@ -22,29 +22,35 @@
  * SOFTWARE.
  */
 
-package com.daimajia.androidanimations.library.specials;
+package com.daimajia.androidanimations.library.easing_functions.bounce;
 
-import android.view.View;
+import com.daimajia.androidanimations.library.easing_functions.BaseEasingMethod;
 
-import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.daimajia.androidanimations.library.easing_functions.Glider;
-import com.daimajia.androidanimations.library.easing_functions.Skill;
-import com.nineoldandroids.animation.ObjectAnimator;
+public class BounceEaseOut extends BaseEasingMethod{
 
-public class HingeAnimator extends BaseViewAnimator{
+    public BounceEaseOut(float duration){
+        super(duration);
+    }
+
     @Override
-    protected void prepare(View target) {
-        float x = target.getPaddingLeft();
-        float y = target.getPaddingTop();
-        getAnimatorAgent().playTogether(
-                Glider.glide(Skill.SineEaseInOut, 1300, ObjectAnimator.ofFloat(target,"rotation",0,80,60,80,60,60)),
-                ObjectAnimator.ofFloat(target, "translationY", 0, 0, 0, 0, 0, 700),
-                ObjectAnimator.ofFloat(target, "alpha", 1, 1, 1, 1, 1, 0),
-                ObjectAnimator.ofFloat(target, "pivotX", x, x, x, x, x, x),
-                ObjectAnimator.ofFloat(target, "pivotY", y, y, y, y, y, y)
-        );
+    public float getInterpolation(float input) {
+        return input;
+    }
 
-        setDuration(1300);
+    @Override
+    public Float evaluate(float fraction, Number startValue, Number endValue) {
+        float d = mDuration;
+        float t = fraction * mDuration;
+        float b = startValue.floatValue();
+        float c = endValue.floatValue() - startValue.floatValue();
+        if ((t/=d) < (1/2.75f)) {
+            return c*(7.5625f*t*t) + b;
+        } else if (t < (2/2.75f)) {
+            return c*(7.5625f*(t-=(1.5f/2.75f))*t + .75f) + b;
+        } else if (t < (2.5/2.75)) {
+            return c*(7.5625f*(t-=(2.25f/2.75f))*t + .9375f) + b;
+        } else {
+            return c*(7.5625f*(t-=(2.625f/2.75f))*t + .984375f) + b;
+        }
     }
 }
-
