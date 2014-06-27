@@ -22,29 +22,19 @@
  * SOFTWARE.
  */
 
-package com.daimajia.androidanimations.library.specials;
+package com.daimajia.androidanimations.library.easing_functions.circ;
 
-import android.view.View;
+import android.view.animation.Interpolator;
 
-import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.daimajia.androidanimations.library.easing_functions.Glider;
-import com.daimajia.androidanimations.library.easing_functions.Skill;
-import com.nineoldandroids.animation.ObjectAnimator;
-
-public class HingeAnimator extends BaseViewAnimator{
+public class CircEaseInOut implements Interpolator{
     @Override
-    protected void prepare(View target) {
-        float x = target.getPaddingLeft();
-        float y = target.getPaddingTop();
-        getAnimatorAgent().playTogether(
-                Glider.glide(Skill.SineEaseInOut, 1300, ObjectAnimator.ofFloat(target,"rotation",0,80,60,80,60,60)),
-                ObjectAnimator.ofFloat(target, "translationY", 0, 0, 0, 0, 0, 700),
-                ObjectAnimator.ofFloat(target, "alpha", 1, 1, 1, 1, 1, 0),
-                ObjectAnimator.ofFloat(target, "pivotX", x, x, x, x, x, x),
-                ObjectAnimator.ofFloat(target, "pivotY", y, y, y, y, y, y)
-        );
-
-        setDuration(1300);
+    public float getInterpolation(float input) {
+        float x = input * 2.0f;
+        if(x < 1){
+            return -((float)Math.sqrt(1- x*x) -1) / 2.0f;
+        }else{
+            x -= 2;
+            return ((float)Math.sqrt(1 - x*x) + 1) / 2.0f;
+        }
     }
 }
-

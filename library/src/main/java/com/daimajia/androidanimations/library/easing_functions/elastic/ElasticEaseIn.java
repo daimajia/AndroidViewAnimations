@@ -22,29 +22,32 @@
  * SOFTWARE.
  */
 
-package com.daimajia.androidanimations.library.specials;
+package com.daimajia.androidanimations.library.easing_functions.elastic;
 
-import android.view.View;
+import com.daimajia.androidanimations.library.easing_functions.BaseEasingMethod;
 
-import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.daimajia.androidanimations.library.easing_functions.Glider;
-import com.daimajia.androidanimations.library.easing_functions.Skill;
-import com.nineoldandroids.animation.ObjectAnimator;
+public class ElasticEaseIn extends BaseEasingMethod{
 
-public class HingeAnimator extends BaseViewAnimator{
+    public ElasticEaseIn(float duration) {
+        super(duration);
+    }
+
     @Override
-    protected void prepare(View target) {
-        float x = target.getPaddingLeft();
-        float y = target.getPaddingTop();
-        getAnimatorAgent().playTogether(
-                Glider.glide(Skill.SineEaseInOut, 1300, ObjectAnimator.ofFloat(target,"rotation",0,80,60,80,60,60)),
-                ObjectAnimator.ofFloat(target, "translationY", 0, 0, 0, 0, 0, 700),
-                ObjectAnimator.ofFloat(target, "alpha", 1, 1, 1, 1, 1, 0),
-                ObjectAnimator.ofFloat(target, "pivotX", x, x, x, x, x, x),
-                ObjectAnimator.ofFloat(target, "pivotY", y, y, y, y, y, y)
-        );
+    public float getInterpolation(float input) {
+        return input;
+    }
 
-        setDuration(1300);
+    @Override
+    public Float evaluate(float fraction, Number startValue, Number endValue) {
+        float d = mDuration;
+        float t = mDuration * fraction;
+        float b = startValue.floatValue();
+        float c = endValue.floatValue() - startValue.floatValue();
+
+        if (t==0) return b;  if ((t/=d)==1) return b+c;
+        float p=d*.3f;
+        float a=c;
+        float s=p/4;
+        return -(a*(float)Math.pow(2,10*(t-=1)) * (float)Math.sin( (t*d-s)*(2*(float)Math.PI)/p )) + b;
     }
 }
-

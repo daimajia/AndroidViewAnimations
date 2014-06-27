@@ -22,29 +22,23 @@
  * SOFTWARE.
  */
 
-package com.daimajia.androidanimations.library.specials;
+package com.daimajia.androidanimations.library.easing_functions;
 
-import android.view.View;
+import android.view.animation.Interpolator;
 
-import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.daimajia.androidanimations.library.easing_functions.Glider;
-import com.daimajia.androidanimations.library.easing_functions.Skill;
-import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.FloatEvaluator;
 
-public class HingeAnimator extends BaseViewAnimator{
-    @Override
-    protected void prepare(View target) {
-        float x = target.getPaddingLeft();
-        float y = target.getPaddingTop();
-        getAnimatorAgent().playTogether(
-                Glider.glide(Skill.SineEaseInOut, 1300, ObjectAnimator.ofFloat(target,"rotation",0,80,60,80,60,60)),
-                ObjectAnimator.ofFloat(target, "translationY", 0, 0, 0, 0, 0, 700),
-                ObjectAnimator.ofFloat(target, "alpha", 1, 1, 1, 1, 1, 0),
-                ObjectAnimator.ofFloat(target, "pivotX", x, x, x, x, x, x),
-                ObjectAnimator.ofFloat(target, "pivotY", y, y, y, y, y, y)
-        );
+public abstract class BaseEasingMethod extends FloatEvaluator implements Interpolator{
+    protected float mDuration;
 
-        setDuration(1300);
+
+    public BaseEasingMethod(float duration){
+        mDuration = duration;
+    }
+
+    public abstract float getInterpolation(float input);
+
+    public void setDuration(float duration){
+        mDuration = duration;
     }
 }
-

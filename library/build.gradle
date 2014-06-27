@@ -8,8 +8,8 @@ android {
         applicationId "com.daimajia.androidanimations.library"
         minSdkVersion 8
         targetSdkVersion 19
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 6
+        versionName "1.0.5"
     }
     buildTypes {
         release {
@@ -21,7 +21,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:19.+'
     compile 'com.nineoldandroids:library:2.4.0'
 }
 apply from: './gradle-mvn-push.gradle'
