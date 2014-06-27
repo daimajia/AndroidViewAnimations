@@ -26,8 +26,8 @@ before_install:
   - echo yes | android update sdk --all --filter build-tools-19.0.3 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter android-19 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter sysimg-19 --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+  - echo yes | android update sdk --all extra-android-support --no-ui --force > /dev/null
+  - echo yes | android update sdk --all extra-android-m2repository --no-ui --force > /dev/null
 
 install:
- - ./gradlew assemble
+ - ./gradlew clean assemble
