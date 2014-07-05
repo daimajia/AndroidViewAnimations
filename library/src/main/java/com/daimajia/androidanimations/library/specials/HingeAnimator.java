@@ -27,8 +27,8 @@ package com.daimajia.androidanimations.library.specials;
 import android.view.View;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.daimajia.androidanimations.library.easing_functions.Glider;
-import com.daimajia.androidanimations.library.easing_functions.Skill;
+import com.daimajia.easing.Glider;
+import com.daimajia.easing.Skill;
 import com.nineoldandroids.animation.ObjectAnimator;
 
 public class HingeAnimator extends BaseViewAnimator{

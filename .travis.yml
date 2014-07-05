@@ -1,66 +1,33 @@
 language: java
-
-branches:
-  only:
-    - dev
-    - master
-
 jdk: oraclejdk7
-
 env:
-  global:
-    - ANDROID_SDK_VERSION="r22.6.2"
-
-notifications:
-  email: false
-
+  matrix:
+    - ANDROID_TARGET=android-20  ANDROID_ABI=armeabi-v7a
 
 before_install:
-
-  # environment info
-  - gradle -v
-  - uname -a
-
-  # required libs for android build tools
-  # Update a system for ia32 libraries
+  # Install base Android SDK
   - sudo apt-get update -qq
-  - if [ `uname -m` = x86_64 ]; then sudo apt-get update; fi
-  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
-
-  # for gradle output style
-  - export TERM=dumb
-
-  # newer version of gradle
-  # - wget http://services.gradle.org/distributions/gradle-1.12-bin.zip
-  # - unzip -qq gradle-1.12-bin.zip
-  # - export GRADLE_HOME=$PWD/gradle-1.11
-  # - export PATH=$GRADLE_HOME/bin:$PATH
-
-  # just to test gradle version, against our provided one
-  - gradle -v
-
-  # newest android SDK
-  - wget http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
-  - tar -zxf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
-  - export ANDROID_HOME=`pwd`/android-sdk-linux
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
+  - wget http://dl.google.com/android/android-sdk_r23-linux.tgz
+  - tar xzf android-sdk_r23-linux.tgz
+  - export ANDROID_HOME=$PWD/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
-  # manually set sdk.dir variable, according to local paths
-  - echo "sdk.dir=$ANDROID_HOME" > local.properties
+ # Gradle
+  - wget http://services.gradle.org/distributions/gradle-1.12-bin.zip
+  - unzip gradle-1.12-bin.zip
+  - export GRADLE_HOME=$PWD/gradle-1.12
+  - export PATH=$GRADLE_HOME/bin:$PATH
 
-  # Install required components.
+  # Install required components
   # For a full list, run `android list sdk -a --extended`
+  # Note that sysimg-19 downloads only ARM, because only the first license query is accepted.
   - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter build-tools-19.1.0 --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter android-19 --no-ui --force > /dev/null
+  - echo yes | android update sdk --all --filter build-tools-20.0.0 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter android-20 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter sys-img-x86-android-19 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
-  # Otherwise
-  #- echo yes | android update sdk -t tools,platform-tools,extra-android-support,extra-android-m2repository,android-19 --force --no-ui
-
-
-# Let's try to build...
-install: ./gradlew clean build
-
-script: gradle check
+install:
+ - ./gradlew assemble

@@ -4,11 +4,6 @@ One day, I saw [an iOS library](https://github.com/ArtFeel/AFViewShaker), which 
 
 So, I started to collect animation effects... and in two days, this project born.
 
-
-2014-06-27
-
-I have implemented [Animation Easing](http://easings.net/) [functions](https://github.com/daimajia/AndroidViewAnimations/tree/master/library/src/main/java/com/daimajia/androidanimations/library/easing_functions), based on [Rober Penner's Easing functions](http://www.robertpenner.com/easing/).
-You can use easing functions to make your animation more real! It's pretty complex, but don't worrr, I'll add some examples later. :-D
 # Demo
 
 ![](http://ww3.sinaimg.cn/mw690/610dc034jw1ehnv2r93jpg20bx0kokjl.gif)
@@ -20,8 +15,9 @@ You can use easing functions to make your animation more real! It's pretty compl
 
 ```groovy
 dependencies {
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.androidanimations:library:1.0.5@aar'
+        compile 'com.nineoldandroids:library:2.4.0'
+        compile 'com.daimajia.easing:library:1.0.0@aar'
+        compile 'com.daimajia.androidanimations:library:1.0.6@aar'
 }
 ```
 or Maven
@@ -35,7 +31,13 @@ or Maven
 <dependency>
     <groupId>com.daimajia.androidanimation</groupId>
     <artifactId>library</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
+    <type>apklib</type>
+</dependency>
+<dependency>
+    <groupId>com.daimajia.easing</groupId>
+    <artifactId>library</artifactId>
+    <version>1.0.0</version>
     <type>apklib</type>
 </dependency>
 ```

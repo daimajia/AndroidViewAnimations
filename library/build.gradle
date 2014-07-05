@@ -1,15 +1,15 @@
 apply plugin: 'android-library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
 
     defaultConfig {
         applicationId "com.daimajia.androidanimations.library"
         minSdkVersion 8
-        targetSdkVersion 19
-        versionCode 6
-        versionName "1.0.5"
+        targetSdkVersion 20
+        versionCode 7
+        versionName "1.0.6"
     }
     buildTypes {
         release {
@@ -22,5 +22,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.easing:library:1.0.0@aar'
 }
 apply from: './gradle-mvn-push.gradle'
