@@ -11,6 +11,8 @@ So, I started to collect animation effects... and in two days, this project born
 [Download Demo](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.5/demo-v1.0.5.apk)
 # Usage
 
+For making animations more real, I created another project named [Android Easing Functions](https://github.com/daimajia/AnimationEasingFunctions) which is an implementations of [easing functions](http://easings.net/) on Android. So, we need to dependent that project.
+
 ## Step 1
 
 ```groovy
