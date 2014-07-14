@@ -15,6 +15,7 @@ For making animations more real, I created another project named [Android Easing
 
 ## Step 1
 
+#### Gralde
 ```groovy
 dependencies {
         compile 'com.nineoldandroids:library:2.4.0'
@@ -22,7 +23,7 @@ dependencies {
         compile 'com.daimajia.androidanimations:library:1.0.6@aar'
 }
 ```
-or Maven
+#### Maven
 
 ```xml
 <dependency>
@@ -43,6 +44,14 @@ or Maven
     <type>apklib</type>
 </dependency>
 ```
+
+#### Eclipse
+
+Download the following jars, and copy them into your `libs` directory.
+
+-   [`NineOldAndroid-2.4.0`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.6/NineOldAndroid-2.4.0.jar)
+-   [`AndroidEasingFunctions-1.0.0`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.6/AndroidEasingFunctions-1.0.0.jar)
+-   [`AndroidViewAnimations-1.0.6`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.6/AndroidViewAnimations-1.0.6.jar)
 
 ## Step 2
 
