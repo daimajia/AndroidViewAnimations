@@ -93,22 +93,22 @@ public class YoYo {
             return this;
         }
 
-        public YoYoRope playOn(View target) {
+        public YoYoString playOn(View target) {
             this.target = target;
-            return new YoYoRope(new YoYo(this).play(), this.target);
+            return new YoYoString(new YoYo(this).play(), this.target);
         }
 
     }
 
     /**
-     * YoYo's rope, you can use this rope to control your YoYo.
+     * YoYo string, you can use this string to control your YoYo.
      */
-    public static final class YoYoRope{
+    public static final class YoYoString {
 
         private BaseViewAnimator animator;
         private View target;
 
-        private YoYoRope(BaseViewAnimator animator, View target){
+        private YoYoString(BaseViewAnimator animator, View target){
             this.target = target;
             this.animator = animator;
         }

@@ -67,7 +67,7 @@ public class MyActivity extends Activity {
             }
         });
     }
-    private YoYo.YoYoRope rope;
+    private YoYo.YoYoString rope;
 
 
     @Override
