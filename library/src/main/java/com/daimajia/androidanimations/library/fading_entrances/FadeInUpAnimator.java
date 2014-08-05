@@ -31,7 +31,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 public class FadeInUpAnimator extends BaseViewAnimator {
     @Override
-    protected void prepare(View target) {
+    public void prepare(View target) {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "alpha", 0, 1),
                 ObjectAnimator.ofFloat(target, "translationY", 20, 0)

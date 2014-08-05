@@ -31,7 +31,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 public class WaveAnimator extends BaseViewAnimator{
     @Override
-    protected void prepare(View target) {
+    public void prepare(View target) {
         float x = (target.getWidth() - target.getPaddingLeft() - target.getPaddingRight())/2
                 + target.getPaddingLeft();
         float y = target.getHeight() - target.getPaddingBottom();

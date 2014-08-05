@@ -33,7 +33,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 public class HingeAnimator extends BaseViewAnimator{
     @Override
-    protected void prepare(View target) {
+    public void prepare(View target) {
         float x = target.getPaddingLeft();
         float y = target.getPaddingTop();
         getAnimatorAgent().playTogether(

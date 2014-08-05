@@ -31,7 +31,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 
 public class RotateOutDownRightAnimator extends BaseViewAnimator {
     @Override
-    protected void prepare(View target) {
+    public void prepare(View target) {
         float x = target.getWidth() - target.getPaddingRight();
         float y = target.getHeight() - target.getPaddingBottom();
         getAnimatorAgent().playTogether(
