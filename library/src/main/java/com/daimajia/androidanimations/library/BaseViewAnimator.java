@@ -96,6 +96,18 @@ public abstract class BaseViewAnimator {
         return this;
     }
 
+    public void cancel(){
+        mAnimatorSet.cancel();
+    }
+
+    public boolean isRunning(){
+        return mAnimatorSet.isRunning();
+    }
+
+    public boolean isStarted(){
+        return mAnimatorSet.isStarted();
+    }
+
     public void removeAnimatorListener(AnimatorListener l) {
         mAnimatorSet.removeListener(l);
     }

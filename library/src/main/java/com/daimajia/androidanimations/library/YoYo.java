@@ -93,14 +93,44 @@ public class YoYo {
             return this;
         }
 
-        public void playOn(View target) {
+        public YoYoRope playOn(View target) {
             this.target = target;
-            new YoYo(this).play();
+            return new YoYoRope(new YoYo(this).play(), this.target);
         }
 
     }
 
-    private void play() {
+    /**
+     * YoYo's rope, you can use this rope to control your YoYo.
+     */
+    public static final class YoYoRope{
+
+        private BaseViewAnimator animator;
+        private View target;
+
+        private YoYoRope(BaseViewAnimator animator, View target){
+            this.target = target;
+            this.animator = animator;
+        }
+
+        public boolean isStarted(){
+            return animator.isStarted();
+        }
+
+        public boolean isRunning(){
+            return animator.isRunning();
+        }
+
+        public void stop(boolean reset){
+            animator.cancel();
+
+            if(reset)
+                animator.reset(target);
+        }
+
+    }
+
+    private BaseViewAnimator play() {
         final BaseViewAnimator animator = techniques.getAnimator();
 
         animator.setDuration(duration)
@@ -114,6 +144,7 @@ public class YoYo {
         }
 
         animator.animate(target);
+        return animator;
     }
 
 }

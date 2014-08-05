@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.daimajia.androidanimations.library.BaseViewAnimator;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+import com.nineoldandroids.animation.Animator;
 
 public class MyActivity extends Activity {
 
@@ -29,12 +32,42 @@ public class MyActivity extends Activity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((BaseViewAnimator) (view.getTag())).setDuration(800)
-                        .setInterpolator(new AccelerateInterpolator())
-                        .animate(mTarget);
+                Techniques technique = (Techniques)view.getTag();
+                rope =  YoYo.with(technique)
+                            .duration(800)
+                            .interpolate(new AccelerateDecelerateInterpolator())
+                            .withListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animation) {
+
+                                }
+
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+
+                                }
+
+                                @Override
+                                public void onAnimationCancel(Animator animation) {
+                                    Toast.makeText(MyActivity.this, "canceled", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animation) {
+
+                                }
+                            })
+                            .playOn(mTarget);
+            }
+        });
+        findViewById(R.id.hello_world).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rope.stop(true);
             }
         });
     }
+    private YoYo.YoYoRope rope;
 
 
     @Override
