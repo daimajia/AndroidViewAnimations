@@ -36,7 +36,7 @@ public class ZoomOutLeftAnimator extends BaseViewAnimator {
                 ObjectAnimator.ofFloat(target, "alpha",1, 1, 0),
                 ObjectAnimator.ofFloat(target,"scaleX",1,0.475f,0.1f),
                 ObjectAnimator.ofFloat(target,"scaleY",1,0.475f,0.1f),
-                ObjectAnimator.ofFloat(target,"translationX",0,42,-2000)
+                ObjectAnimator.ofFloat(target,"translationX",0,42,-target.getRight())
         );
     }
 }
