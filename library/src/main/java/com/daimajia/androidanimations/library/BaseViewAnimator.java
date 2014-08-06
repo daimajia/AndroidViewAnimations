@@ -146,7 +146,7 @@ public abstract class BaseViewAnimator {
             baseViewAnimator.setInterpolator(interpolator);
             for(AnimatorListener l : listeners)
                 baseViewAnimator.addAnimatorListener(l);
-            baseViewAnimator.setDuration(duration);
+            baseViewAnimator.getAnimatorAgent().setDuration(duration);
             return baseViewAnimator.getAnimatorAgent();
         }
     }

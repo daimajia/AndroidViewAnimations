@@ -105,11 +105,11 @@ afterEvaluate { project ->
     }
 
     task jar(type: Jar) {
-        from android.sourceSets.main.java
+        from android.sourceSets.main.java.srcDirs
     }
 
     task androidJavadocs(type: Javadoc) {
-        source = android.sourceSets.main
+        source = android.sourceSets.main.java.srcDirs
         classpath += project.files(android.getBootClasspath() .join(File.pathSeparator))
     }
 
@@ -120,7 +120,7 @@ afterEvaluate { project ->
 
     task androidSourcesJar(type: Jar) {
         classifier = 'sources'
-        from android.sourceSets.main
+        from android.sourceSets.main.java.srcDirs
     }
 
     artifacts {
