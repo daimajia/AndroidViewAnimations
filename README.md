@@ -51,7 +51,7 @@ Download the following jars, and copy them into your `libs` directory.
 
 -   [`NineOldAndroid-2.4.0`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.6/NineOldAndroid-2.4.0.jar)
 -   [`AndroidEasingFunctions-1.0.0`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.6/AndroidEasingFunctions-1.0.0.jar)
--   [`AndroidViewAnimations-1.1.0`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.8/AndroidViewAnimations-1.0.8.jar)
+-   [`AndroidViewAnimations-1.1.0`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.1.0/AndroidViewAnimations-1.1.0.jar)
 
 ## Step 2
 
