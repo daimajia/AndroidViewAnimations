@@ -35,7 +35,7 @@ public class ZoomInDownAnimator extends BaseViewAnimator {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target,"scaleX",0.1f,0.475f,1),
                 ObjectAnimator.ofFloat(target,"scaleY",0.1f,0.475f,1),
-                ObjectAnimator.ofFloat(target,"translationY",-2000,60,0),
+                ObjectAnimator.ofFloat(target,"translationY",-target.getBottom(),60,0),
                 ObjectAnimator.ofFloat(target,"alpha",0,1,1)
         );
     }

@@ -34,7 +34,7 @@ public class FadeOutLeftAnimator extends BaseViewAnimator {
     public void prepare(View target) {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target,"alpha",1,0),
-                ObjectAnimator.ofFloat(target,"translationX",0,-20)
+                ObjectAnimator.ofFloat(target,"translationX",0,-target.getWidth()/4)
         );
     }
 }

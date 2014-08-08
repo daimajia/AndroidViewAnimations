@@ -34,7 +34,7 @@ public class FadeInDownAnimator extends BaseViewAnimator {
     public void prepare(View target) {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "alpha", 0, 1),
-                ObjectAnimator.ofFloat(target, "translationY", -20, 0)
+                ObjectAnimator.ofFloat(target, "translationY", -target.getHeight()/4, 0)
         );
     }
 }
