@@ -122,7 +122,7 @@ public abstract class BaseViewAnimator {
     }
 
     public long getDuration() {
-        return mAnimatorSet.getDuration();
+        return mDuration
     }
 
     public AnimatorSet getAnimatorAgent() {
