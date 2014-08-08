@@ -26,6 +26,7 @@
 package com.daimajia.androidanimations.library;
 
 import com.daimajia.androidanimations.library.attention.BounceAnimator;
+import com.daimajia.androidanimations.library.attention.DropOutAnimator;
 import com.daimajia.androidanimations.library.attention.FlashAnimator;
 import com.daimajia.androidanimations.library.attention.PulseAnimator;
 import com.daimajia.androidanimations.library.attention.RubberBandAnimator;
@@ -97,6 +98,7 @@ public enum Techniques {
     Tada(TadaAnimator.class),
     StandUp(StandUpAnimator.class),
     Wave(WaveAnimator.class),
+    DropOut(DropOutAnimator.class),
 
     Hinge(HingeAnimator.class),
     RollIn(RollInAnimator.class),

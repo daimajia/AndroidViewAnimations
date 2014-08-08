@@ -34,7 +34,7 @@ public class MyActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Techniques technique = (Techniques)view.getTag();
                 rope =  YoYo.with(technique)
-                            .duration(800)
+                            .duration(1200)
                             .interpolate(new AccelerateDecelerateInterpolator())
                             .withListener(new Animator.AnimatorListener() {
                                 @Override

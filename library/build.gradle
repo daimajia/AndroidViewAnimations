@@ -8,8 +8,8 @@ android {
         applicationId "com.daimajia.androidanimations.library"
         minSdkVersion 8
         targetSdkVersion 20
-        versionCode 11
-        versionName "1.1.0"
+        versionCode 12
+        versionName "1.1.1"
     }
     buildTypes {
         release {
