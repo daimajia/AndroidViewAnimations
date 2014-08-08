@@ -1,4 +1,4 @@
-package com.daimajia.androidanimations.library.attention;
+package com.daimajia.androidanimations.library.specials.in;
 
 import android.view.View;
 

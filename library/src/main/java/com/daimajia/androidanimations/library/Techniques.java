@@ -26,7 +26,6 @@
 package com.daimajia.androidanimations.library;
 
 import com.daimajia.androidanimations.library.attention.BounceAnimator;
-import com.daimajia.androidanimations.library.attention.DropOutAnimator;
 import com.daimajia.androidanimations.library.attention.FlashAnimator;
 import com.daimajia.androidanimations.library.attention.PulseAnimator;
 import com.daimajia.androidanimations.library.attention.RubberBandAnimator;
@@ -75,6 +74,9 @@ import com.daimajia.androidanimations.library.sliders.SlideOutUpAnimator;
 import com.daimajia.androidanimations.library.specials.HingeAnimator;
 import com.daimajia.androidanimations.library.specials.RollInAnimator;
 import com.daimajia.androidanimations.library.specials.RollOutAnimator;
+import com.daimajia.androidanimations.library.specials.in.DropOutAnimator;
+import com.daimajia.androidanimations.library.specials.in.LandingAnimator;
+import com.daimajia.androidanimations.library.specials.out.TakingOffAnimator;
 import com.daimajia.androidanimations.library.zooming_entrances.ZoomInAnimator;
 import com.daimajia.androidanimations.library.zooming_entrances.ZoomInDownAnimator;
 import com.daimajia.androidanimations.library.zooming_entrances.ZoomInLeftAnimator;
@@ -88,6 +90,10 @@ import com.daimajia.androidanimations.library.zooming_exits.ZoomOutUpAnimator;
 
 public enum Techniques {
 
+    DropOut(DropOutAnimator.class),
+    Landing(LandingAnimator.class),
+    TakingOff(TakingOffAnimator.class),
+
     Flash(FlashAnimator.class),
     Pulse(PulseAnimator.class),
     RubberBand(RubberBandAnimator.class),
@@ -98,7 +104,6 @@ public enum Techniques {
     Tada(TadaAnimator.class),
     StandUp(StandUpAnimator.class),
     Wave(WaveAnimator.class),
-    DropOut(DropOutAnimator.class),
 
     Hinge(HingeAnimator.class),
     RollIn(RollInAnimator.class),
@@ -159,6 +164,8 @@ public enum Techniques {
     ZoomOutLeft(ZoomOutLeftAnimator.class),
     ZoomOutRight(ZoomOutRightAnimator.class),
     ZoomOutUp(ZoomOutUpAnimator.class);
+
+
 
     private Class animatorClazz;
 
