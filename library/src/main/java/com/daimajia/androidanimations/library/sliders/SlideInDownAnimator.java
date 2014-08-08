@@ -25,7 +25,6 @@
 package com.daimajia.androidanimations.library.sliders;
 
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -33,7 +32,6 @@ import com.nineoldandroids.animation.ObjectAnimator;
 public class SlideInDownAnimator extends BaseViewAnimator {
     @Override
     public void prepare(View target) {
-        ViewGroup parent = (ViewGroup)target.getParent();
         int distance = target.getTop() + target.getHeight();
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target,"alpha",0,1),

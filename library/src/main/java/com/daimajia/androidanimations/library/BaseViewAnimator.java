@@ -129,27 +129,4 @@ public abstract class BaseViewAnimator {
         return mAnimatorSet;
     }
 
-    public static class Builder{
-
-        public static AnimatorSet build(Techniques technique, View target){
-            return build(technique, target, DURATION, 0);
-        }
-
-        public static AnimatorSet build(Techniques technique, View target, long duration, long delay){
-            return build(technique, target, duration, delay, null, new AnimatorListener[]{});
-        }
-
-        public static AnimatorSet build(Techniques technique, View target, long duration, long delay, Interpolator interpolator, AnimatorListener... listeners){
-            BaseViewAnimator baseViewAnimator = technique.getAnimator();
-            baseViewAnimator.prepare(target);
-            baseViewAnimator.setStartDelay(delay);
-            baseViewAnimator.setInterpolator(interpolator);
-            for(AnimatorListener l : listeners)
-                baseViewAnimator.addAnimatorListener(l);
-            baseViewAnimator.getAnimatorAgent().setDuration(duration);
-            return baseViewAnimator.getAnimatorAgent();
-        }
-    }
-
-
 }
