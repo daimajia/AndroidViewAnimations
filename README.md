@@ -15,7 +15,7 @@ For making animations more real, I created another project named [Android Easing
 
 ## Step 1
 
-#### Gralde
+#### Gradle
 ```groovy
 dependencies {
         compile 'com.nineoldandroids:library:2.4.0'
