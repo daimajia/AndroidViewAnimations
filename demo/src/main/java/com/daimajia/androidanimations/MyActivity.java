@@ -63,7 +63,9 @@ public class MyActivity extends Activity {
         findViewById(R.id.hello_world).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rope.stop(true);
+                if (rope != null) {
+                    rope.stop(true);   
+                }
             }
         });
     }
