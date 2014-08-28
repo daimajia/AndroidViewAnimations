@@ -29,6 +29,7 @@ public class MyActivity extends Activity {
         mTarget = findViewById(R.id.hello_world);
         mAdapter = new EffectAdapter(this);
         mListView.setAdapter(mAdapter);
+        rope = YoYo.with(Techniques.FadeIn).duration(1000).playOn(mTarget);// after start,just click mTarget view, rope is not init 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
