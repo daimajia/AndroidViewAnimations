@@ -68,7 +68,7 @@ YoYo.with(Techniques.Tada)
 `Flash`, `Pulse`, `RubberBand`, `Shake`, `Swing`, `Wobble`, `Bounce`, `Tada`, `StandUp`, `Wave`
 
 #### Special
-`Hinge`, `RollIn`, `RollOut`,`Landing`,,`TakingOff`,`DropOut`
+`Hinge`, `RollIn`, `RollOut`,`Landing`,`TakingOff`,`DropOut`
 
 #### Bounce
 `BounceIn`, `BounceInDown`, `BounceInLeft`, `BounceInRight`, `BounceInUp`
