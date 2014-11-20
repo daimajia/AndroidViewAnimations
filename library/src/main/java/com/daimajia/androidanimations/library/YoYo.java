@@ -38,7 +38,7 @@ public class YoYo {
     private static final long DURATION = BaseViewAnimator.DURATION;
     private static final long NO_DELAY = 0;
 
-    private Techniques techniques;
+    private BaseViewAnimator animator;
     private long duration;
     private long delay;
     private Interpolator interpolator;
@@ -46,7 +46,7 @@ public class YoYo {
     private View target;
 
     private YoYo(AnimationComposer animationComposer) {
-        techniques = animationComposer.techniques;
+        animator = animationComposer.animator;
         duration = animationComposer.duration;
         delay = animationComposer.delay;
         interpolator = animationComposer.interpolator;
@@ -58,18 +58,26 @@ public class YoYo {
         return new AnimationComposer(techniques);
     }
 
+    public static AnimationComposer with(BaseViewAnimator animator) {
+        return new AnimationComposer(animator);
+    }
+
     public static final class AnimationComposer {
 
         private List<Animator.AnimatorListener> callbacks = new ArrayList<Animator.AnimatorListener>();
 
-        private Techniques techniques;
+        private BaseViewAnimator animator;
         private long duration = DURATION;
         private long delay = NO_DELAY;
         private Interpolator interpolator;
         private View target;
 
         private AnimationComposer(Techniques techniques) {
-            this.techniques = techniques;
+            this.animator = techniques.getAnimator();
+        }
+
+        private AnimationComposer(BaseViewAnimator animator) {
+            this.animator = animator;
         }
 
         public AnimationComposer duration(long duration) {
@@ -131,8 +139,6 @@ public class YoYo {
     }
 
     private BaseViewAnimator play() {
-        final BaseViewAnimator animator = techniques.getAnimator();
-
         animator.setDuration(duration)
                 .setInterpolator(interpolator)
                 .setStartDelay(delay);
