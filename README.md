@@ -20,7 +20,7 @@ For making animations more real, I created another project named [Android Easing
 dependencies {
         compile 'com.nineoldandroids:library:2.4.0'
         compile 'com.daimajia.easing:library:1.0.0@aar'
-        compile 'com.daimajia.androidanimations:library:1.1.2@aar'
+        compile 'com.daimajia.androidanimations:library:1.1.3@aar'
 }
 ```
 #### Maven
@@ -34,7 +34,7 @@ dependencies {
 <dependency>
     <groupId>com.daimajia.androidanimation</groupId>
     <artifactId>library</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <type>apklib</type>
 </dependency>
 <dependency>
