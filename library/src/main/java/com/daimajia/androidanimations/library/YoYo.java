@@ -139,6 +139,7 @@ public class YoYo {
     }
 
     private BaseViewAnimator play() {
+        animator.setTarget(target);
         animator.setDuration(duration)
                 .setInterpolator(interpolator)
                 .setStartDelay(delay);
@@ -149,7 +150,7 @@ public class YoYo {
             }
         }
 
-        animator.animate(target);
+        animator.animate();
         return animator;
     }
 
