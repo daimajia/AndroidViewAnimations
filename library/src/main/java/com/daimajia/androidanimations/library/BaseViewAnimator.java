@@ -51,7 +51,7 @@ public abstract class BaseViewAnimator {
         return this;
     }
 
-    public void animate(View target) {
+    public void animate() {
         start();
     }
 

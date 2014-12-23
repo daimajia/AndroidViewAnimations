@@ -150,7 +150,7 @@ public class YoYo {
             }
         }
 
-        animator.animate(target);
+        animator.animate();
         return animator;
     }
 
