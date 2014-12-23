@@ -45,9 +45,13 @@ public abstract class BaseViewAnimator {
 
     protected abstract void prepare(View target);
 
-    public void animate(View target) {
+    public BaseViewAnimator setTarget(View target) {
         reset(target);
         prepare(target);
+        return this;
+    }
+
+    public void animate(View target) {
         start();
     }
 
