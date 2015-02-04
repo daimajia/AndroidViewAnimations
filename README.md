@@ -1,4 +1,5 @@
-# Android View Animations [![Build Status](https://travis-ci.org/daimajia/AndroidViewAnimations.svg)](https://travis-ci.org/daimajia/AndroidAnimations)
+[![AndroidLibs](https://img.shields.io/badge/AndroidLibs-AndroidViewAnimations-brightgreen.svg?style=flat)](https://www.android-libs.com/lib/androidviewanimations?utm_source=github-badge&utm_medium=github-badge&utm_campaign=github-badge)
+			# Android View Animations [![Build Status](https://travis-ci.org/daimajia/AndroidViewAnimations.svg)](https://travis-ci.org/daimajia/AndroidAnimations)
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/daimajia/AndroidViewAnimations?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
