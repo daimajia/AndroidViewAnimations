@@ -1,20 +1,19 @@
 apply plugin: 'android-sdk-manager'
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
+    compileSdkVersion 22
     buildToolsVersion "20"
 
     defaultConfig {
         applicationId "com.daimajia.androidanimations"
         minSdkVersion 8
-        targetSdkVersion 20
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
