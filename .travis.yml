@@ -22,6 +22,7 @@ android:
     - sys-img-armeabi-v7a-android-19
     - sys-img-x86-android-17
 
+
 before_script:  
     - echo no | android create avd --force -n test -t android-17 --abi armeabi-v7a
     - emulator -avd test -no-skin -no-audio -no-window &
