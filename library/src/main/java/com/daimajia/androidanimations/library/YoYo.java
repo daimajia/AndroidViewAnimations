@@ -62,6 +62,21 @@ public class YoYo {
         return new AnimationComposer(animator);
     }
 
+    public interface AnimatorCallback {
+        public void call(Animator animator);
+    }
+
+    private static class EmptyAnimatorListener implements Animator.AnimatorListener {
+        @Override
+        public void onAnimationStart(Animator animation){}
+        @Override
+        public void onAnimationEnd(Animator animation){}
+        @Override
+        public void onAnimationCancel(Animator animation){}
+        @Override
+        public void onAnimationRepeat(Animator animation){}
+    }
+
     public static final class AnimationComposer {
 
         private List<Animator.AnimatorListener> callbacks = new ArrayList<Animator.AnimatorListener>();
@@ -98,6 +113,38 @@ public class YoYo {
 
         public AnimationComposer withListener(Animator.AnimatorListener listener) {
             callbacks.add(listener);
+            return this;
+        }
+
+        public AnimationComposer onStart(final AnimatorCallback callback) {
+            callbacks.add(new EmptyAnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) { callback.call(animation); }
+            });
+            return this;
+        }
+
+        public AnimationComposer onEnd(final AnimatorCallback callback) {
+            callbacks.add(new EmptyAnimatorListener() {
+                @Override
+                public void onAnimationEnd(Animator animation) { callback.call(animation); }
+            });
+            return this;
+        }
+
+        public AnimationComposer onCancel(final AnimatorCallback callback) {
+            callbacks.add(new EmptyAnimatorListener() {
+                @Override
+                public void onAnimationCancel(Animator animation) { callback.call(animation); }
+            });
+            return this;
+        }
+
+        public AnimationComposer onRepeat(final AnimatorCallback callback) {
+            callbacks.add(new EmptyAnimatorListener() {
+                @Override
+                public void onAnimationRepeat(Animator animation) { callback.call(animation); }
+            });
             return this;
         }
 
