@@ -1,33 +1,24 @@
-language: java
-jdk: oraclejdk7
-env:
-  matrix:
-    - ANDROID_TARGET=android-20  ANDROID_ABI=armeabi-v7a
+language: android
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+     - platform-tools
+     - tools
 
-before_install:
-  # Install base Android SDK
-  - sudo apt-get update -qq
-  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
-  - wget http://dl.google.com/android/android-sdk_r23-linux.tgz
-  - tar xzf android-sdk_r23-linux.tgz
-  - export ANDROID_HOME=$PWD/android-sdk-linux
-  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+    # The BuildTools version used by your project
+    - build-tools-20
 
- # Gradle
-  - wget http://services.gradle.org/distributions/gradle-1.12-bin.zip
-  - unzip gradle-1.12-bin.zip
-  - export GRADLE_HOME=$PWD/gradle-1.12
-  - export PATH=$GRADLE_HOME/bin:$PATH
+    # The SDK version used to compile your project
+    - android-22
 
-  # Install required components
-  # For a full list, run `android list sdk -a --extended`
-  # Note that sysimg-19 downloads only ARM, because only the first license query is accepted.
-  - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter build-tools-20.0.0 --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter android-20 --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter sys-img-x86-android-19 --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+    # Additional components
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
 
-install:
- - ./gradlew assemble
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-android-19
+    - sys-img-x86-android-17
+script: ./gradlew build connectedCheck
