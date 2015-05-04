@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "20"
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "com.daimajia.androidanimations"
