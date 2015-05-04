@@ -29,7 +29,7 @@ import android.view.View;
 import com.daimajia.androidanimations.library.BaseViewAnimator;
 import com.nineoldandroids.animation.ObjectAnimator;
 
-public class FlipYAnimator extends BaseViewAnimator {
+public class FlipInYAnimator extends BaseViewAnimator {
     @Override
     public void prepare(View target) {
         getAnimatorAgent().playTogether(

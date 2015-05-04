@@ -51,6 +51,7 @@ import com.daimajia.androidanimations.library.fading_exits.FadeOutLeftAnimator;
 import com.daimajia.androidanimations.library.fading_exits.FadeOutRightAnimator;
 import com.daimajia.androidanimations.library.fading_exits.FadeOutUpAnimator;
 import com.daimajia.androidanimations.library.flippers.FlipInXAnimator;
+import com.daimajia.androidanimations.library.flippers.FlipInYAnimator;
 import com.daimajia.androidanimations.library.flippers.FlipOutXAnimator;
 import com.daimajia.androidanimations.library.flippers.FlipOutYAnimator;
 import com.daimajia.androidanimations.library.rotating_entrances.RotateInAnimator;
@@ -129,7 +130,7 @@ public enum Techniques {
 
     FlipInX(FlipInXAnimator.class),
     FlipOutX(FlipOutXAnimator.class),
-
+    FlipInY(FlipInYAnimator.class),
     FlipOutY(FlipOutYAnimator.class),
     RotateIn(RotateInAnimator.class),
     RotateInDownLeft(RotateInDownLeftAnimator.class),
