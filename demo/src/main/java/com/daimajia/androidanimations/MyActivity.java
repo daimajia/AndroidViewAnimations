@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -20,16 +21,19 @@ public class MyActivity extends Activity {
     private ListView mListView;
     private EffectAdapter mAdapter;
     private View mTarget;
+    private YoYo.YoYoString rope;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
         mListView = (ListView)findViewById(R.id.list_items);
         mTarget = findViewById(R.id.hello_world);
+
         mAdapter = new EffectAdapter(this);
         mListView.setAdapter(mAdapter);
-        rope = YoYo.with(Techniques.FadeIn).duration(1000).playOn(mTarget);// after start,just click mTarget view, rope is not init 
+
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -70,7 +74,13 @@ public class MyActivity extends Activity {
             }
         });
     }
-    private YoYo.YoYoString rope;
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        if(hasFocus){
+            rope = YoYo.with(Techniques.FadeIn).duration(1000).playOn(mTarget);// after start,just click mTarget view, rope is not init
+        }
+    }
 
 
     @Override
