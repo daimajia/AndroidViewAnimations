@@ -25,10 +25,10 @@
 
 package com.daimajia.androidanimations.library;
 
+import android.animation.Animator;
 import android.view.View;
 import android.view.animation.Interpolator;
 
-import com.nineoldandroids.animation.Animator;
 
 import java.util.ArrayList;
 import java.util.List;
