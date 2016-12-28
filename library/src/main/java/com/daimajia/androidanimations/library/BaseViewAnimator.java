@@ -24,12 +24,13 @@
 
 package com.daimajia.androidanimations.library;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.animation.Interpolator;
 
-import com.nineoldandroids.animation.Animator.AnimatorListener;
-import com.nineoldandroids.animation.AnimatorSet;
-import com.nineoldandroids.view.ViewHelper;
 
 public abstract class BaseViewAnimator {
 
@@ -60,17 +61,17 @@ public abstract class BaseViewAnimator {
      *
      * @param target
      */
-    public void reset(View target) {
-        ViewHelper.setAlpha(target, 1);
-        ViewHelper.setScaleX(target, 1);
-        ViewHelper.setScaleY(target, 1);
-        ViewHelper.setTranslationX(target, 0);
-        ViewHelper.setTranslationY(target, 0);
-        ViewHelper.setRotation(target, 0);
-        ViewHelper.setRotationY(target, 0);
-        ViewHelper.setRotationX(target, 0);
-        ViewHelper.setPivotX(target, target.getMeasuredWidth() / 2.0f);
-        ViewHelper.setPivotY(target, target.getMeasuredHeight() / 2.0f);
+        public void reset(View target) {
+            ViewCompat.setAlpha(target, 1);
+            ViewCompat.setScaleX(target, 1);
+            ViewCompat.setScaleY(target, 1);
+            ViewCompat.setTranslationX(target, 0);
+            ViewCompat.setTranslationY(target, 0);
+            ViewCompat.setRotation(target, 0);
+            ViewCompat.setRotationY(target, 0);
+            ViewCompat.setRotationX(target, 0);
+            ViewCompat.setPivotX(target, target.getMeasuredWidth() / 2.0f);
+            ViewCompat.setPivotY(target, target.getMeasuredHeight() / 2.0f);
     }
 
     /**
@@ -95,7 +96,7 @@ public abstract class BaseViewAnimator {
         return mAnimatorSet.getStartDelay();
     }
 
-    public BaseViewAnimator addAnimatorListener(AnimatorListener l) {
+    public BaseViewAnimator addAnimatorListener(Animator.AnimatorListener l) {
         mAnimatorSet.addListener(l);
         return this;
     }
@@ -112,7 +113,7 @@ public abstract class BaseViewAnimator {
         return mAnimatorSet.isStarted();
     }
 
-    public void removeAnimatorListener(AnimatorListener l) {
+    public void removeAnimatorListener(Animator.AnimatorListener l) {
         mAnimatorSet.removeListener(l);
     }
 

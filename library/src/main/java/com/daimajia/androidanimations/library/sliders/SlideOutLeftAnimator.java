@@ -24,11 +24,11 @@
 
 package com.daimajia.androidanimations.library.sliders;
 
+import android.animation.ObjectAnimator;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 public class SlideOutLeftAnimator extends BaseViewAnimator {
     @Override

@@ -24,16 +24,16 @@
 
 package com.daimajia.androidanimations.library.attention;
 
+import android.animation.ObjectAnimator;
 import android.view.View;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 public class BounceAnimator extends BaseViewAnimator {
     @Override
     public void prepare(View target) {
         getAnimatorAgent().playTogether(
-                ObjectAnimator.ofFloat(target,"translationY",0,0,-30,0,-15,0,0)
+                ObjectAnimator.ofFloat(target, "translationY", 0, 0, -30, 0, -15, 0, 0)
         );
     }
 }

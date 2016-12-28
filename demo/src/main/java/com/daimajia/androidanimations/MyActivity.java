@@ -1,5 +1,6 @@
 package com.daimajia.androidanimations;
 
+import android.animation.Animator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +15,6 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.nineoldandroids.animation.Animator;
-
 public class MyActivity extends Activity {
 
     private ListView mListView;

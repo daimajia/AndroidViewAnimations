@@ -24,10 +24,10 @@
 
 package com.daimajia.androidanimations.library.rotating_entrances;
 
+import android.animation.ObjectAnimator;
 import android.view.View;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 public class RotateInUpLeftAnimator extends BaseViewAnimator {
     @Override
