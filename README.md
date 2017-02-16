@@ -1,4 +1,4 @@
-# Android View Animations [![Build Status](https://travis-ci.org/daimajia/AndroidViewAnimations.svg)](https://travis-ci.org/daimajia/AndroidAnimations)
+# Android View Animations [![Build Status](https://travis-ci.org/daimajia/AndroidViewAnimations.svg)](https://travis-ci.org/daimajia/AndroidViewAnimations)
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/daimajia/AndroidViewAnimations?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
