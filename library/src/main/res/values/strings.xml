@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- hack to prevent missing R.txt, it's pretty wired.-->
+    <string name="android_animations_lib_name">AndroidAnimations</string>
+
+</resources>
