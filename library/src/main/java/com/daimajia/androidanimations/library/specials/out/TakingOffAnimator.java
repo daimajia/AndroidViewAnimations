@@ -1,11 +1,11 @@
 package com.daimajia.androidanimations.library.specials.out;
 
+import android.animation.ObjectAnimator;
 import android.view.View;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
 import com.daimajia.easing.Glider;
 import com.daimajia.easing.Skill;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 public class TakingOffAnimator extends BaseViewAnimator {
     @Override

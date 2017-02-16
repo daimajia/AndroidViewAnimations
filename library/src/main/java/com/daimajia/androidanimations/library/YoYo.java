@@ -25,10 +25,10 @@
 
 package com.daimajia.androidanimations.library;
 
+import android.animation.Animator;
 import android.view.View;
 import android.view.animation.Interpolator;
 
-import com.nineoldandroids.animation.Animator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,18 +68,25 @@ public class YoYo {
 
     private static class EmptyAnimatorListener implements Animator.AnimatorListener {
         @Override
-        public void onAnimationStart(Animator animation){}
+        public void onAnimationStart(Animator animation) {
+        }
+
         @Override
-        public void onAnimationEnd(Animator animation){}
+        public void onAnimationEnd(Animator animation) {
+        }
+
         @Override
-        public void onAnimationCancel(Animator animation){}
+        public void onAnimationCancel(Animator animation) {
+        }
+
         @Override
-        public void onAnimationRepeat(Animator animation){}
+        public void onAnimationRepeat(Animator animation) {
+        }
     }
 
     public static final class AnimationComposer {
 
-        private List<Animator.AnimatorListener> callbacks = new ArrayList<Animator.AnimatorListener>();
+        private List<Animator.AnimatorListener> callbacks = new ArrayList<>();
 
         private BaseViewAnimator animator;
         private long duration = DURATION;
@@ -119,7 +126,9 @@ public class YoYo {
         public AnimationComposer onStart(final AnimatorCallback callback) {
             callbacks.add(new EmptyAnimatorListener() {
                 @Override
-                public void onAnimationStart(Animator animation) { callback.call(animation); }
+                public void onAnimationStart(Animator animation) {
+                    callback.call(animation);
+                }
             });
             return this;
         }
@@ -127,7 +136,9 @@ public class YoYo {
         public AnimationComposer onEnd(final AnimatorCallback callback) {
             callbacks.add(new EmptyAnimatorListener() {
                 @Override
-                public void onAnimationEnd(Animator animation) { callback.call(animation); }
+                public void onAnimationEnd(Animator animation) {
+                    callback.call(animation);
+                }
             });
             return this;
         }
@@ -135,7 +146,9 @@ public class YoYo {
         public AnimationComposer onCancel(final AnimatorCallback callback) {
             callbacks.add(new EmptyAnimatorListener() {
                 @Override
-                public void onAnimationCancel(Animator animation) { callback.call(animation); }
+                public void onAnimationCancel(Animator animation) {
+                    callback.call(animation);
+                }
             });
             return this;
         }
@@ -143,7 +156,9 @@ public class YoYo {
         public AnimationComposer onRepeat(final AnimatorCallback callback) {
             callbacks.add(new EmptyAnimatorListener() {
                 @Override
-                public void onAnimationRepeat(Animator animation) { callback.call(animation); }
+                public void onAnimationRepeat(Animator animation) {
+                    callback.call(animation);
+                }
             });
             return this;
         }
@@ -163,23 +178,23 @@ public class YoYo {
         private BaseViewAnimator animator;
         private View target;
 
-        private YoYoString(BaseViewAnimator animator, View target){
+        private YoYoString(BaseViewAnimator animator, View target) {
             this.target = target;
             this.animator = animator;
         }
 
-        public boolean isStarted(){
+        public boolean isStarted() {
             return animator.isStarted();
         }
 
-        public boolean isRunning(){
+        public boolean isRunning() {
             return animator.isRunning();
         }
 
-        public void stop(boolean reset){
+        public void stop(boolean reset) {
             animator.cancel();
 
-            if(reset)
+            if (reset)
                 animator.reset(target);
         }
 

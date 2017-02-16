@@ -24,12 +24,12 @@
 
 package com.daimajia.androidanimations.library.flippers;
 
+import android.animation.ObjectAnimator;
 import android.view.View;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
-public class FlipOutYAnimator extends BaseViewAnimator{
+public class FlipOutYAnimator extends BaseViewAnimator {
     @Override
     public void prepare(View target) {
         getAnimatorAgent().playTogether(
