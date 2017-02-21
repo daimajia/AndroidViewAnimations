@@ -47,13 +47,6 @@ dependencies {
 </dependency>
 ```
 
-#### Eclipse
-
-Download the following jars, and copy them into your `libs` directory.
-
--   [`AndroidEasingFunctions-1.0.0`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.0.6/AndroidEasingFunctions-1.0.0.jar)
--   [`AndroidViewAnimations-1.1.3`](https://github.com/daimajia/AndroidViewAnimations/releases/download/v1.1.3/AndroidViewAnimations-1.1.3.jar)
-
 ## Step 2
 
 Just like play Yo-yo.
