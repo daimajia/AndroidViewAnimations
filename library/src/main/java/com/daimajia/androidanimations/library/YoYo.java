@@ -37,10 +37,13 @@ public class YoYo {
 
     private static final long DURATION = BaseViewAnimator.DURATION;
     private static final long NO_DELAY = 0;
+    public static final int INFINITE = -1;
 
     private BaseViewAnimator animator;
     private long duration;
     private long delay;
+    private boolean repeat;
+    private long repeatTimes;
     private Interpolator interpolator;
     private List<Animator.AnimatorListener> callbacks;
     private View target;
@@ -49,6 +52,8 @@ public class YoYo {
         animator = animationComposer.animator;
         duration = animationComposer.duration;
         delay = animationComposer.delay;
+        repeat = animationComposer.repeat;
+        repeatTimes = animationComposer.repeatTimes;
         interpolator = animationComposer.interpolator;
         callbacks = animationComposer.callbacks;
         target = animationComposer.target;
@@ -86,11 +91,14 @@ public class YoYo {
 
     public static final class AnimationComposer {
 
+
         private List<Animator.AnimatorListener> callbacks = new ArrayList<>();
 
         private BaseViewAnimator animator;
         private long duration = DURATION;
         private long delay = NO_DELAY;
+        private boolean repeat = false;
+        private long repeatTimes = 0;
         private Interpolator interpolator;
         private View target;
 
@@ -114,6 +122,16 @@ public class YoYo {
 
         public AnimationComposer interpolate(Interpolator interpolator) {
             this.interpolator = interpolator;
+            return this;
+        }
+
+
+        public AnimationComposer repeat(int times) {
+            if (times < INFINITE) {
+                throw new RuntimeException("Can not be less than -1, -1 is infinite loop");
+            }
+            repeat = times != 0;
+            repeatTimes = times;
             return this;
         }
 
@@ -200,6 +218,7 @@ public class YoYo {
 
     }
 
+
     private BaseViewAnimator play() {
         animator.setTarget(target);
         animator.setDuration(duration)
@@ -210,6 +229,38 @@ public class YoYo {
             for (Animator.AnimatorListener callback : callbacks) {
                 animator.addAnimatorListener(callback);
             }
+        }
+
+        if (repeat) {
+            animator.addAnimatorListener(new Animator.AnimatorListener() {
+
+                private long currentTimes = 0;
+
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    currentTimes++;
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    if (!repeat) {
+                        return;
+                    }
+                    if (repeatTimes == INFINITE || currentTimes < repeatTimes) {
+                        animator.restart();
+                    }
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+                    repeatTimes = 0;
+                    repeat = false;
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+                }
+            });
         }
 
         animator.animate();

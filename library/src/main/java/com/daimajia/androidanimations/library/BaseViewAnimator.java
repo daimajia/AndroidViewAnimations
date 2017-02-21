@@ -55,6 +55,11 @@ public abstract class BaseViewAnimator {
         start();
     }
 
+    public void restart() {
+        mAnimatorSet = mAnimatorSet.clone();
+        start();
+    }
+
     /**
      * reset the view to default status
      *
