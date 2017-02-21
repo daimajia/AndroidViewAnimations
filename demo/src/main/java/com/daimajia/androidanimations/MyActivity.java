@@ -43,6 +43,7 @@ public class MyActivity extends Activity {
                 rope = YoYo.with(technique)
                         .duration(1200)
                         .repeat(YoYo.INFINITE)
+                        .pivot(YoYo.CENTER_PIVOT, YoYo.CENTER_PIVOT)
                         .interpolate(new AccelerateDecelerateInterpolator())
                         .withListener(new Animator.AnimatorListener() {
                             @Override

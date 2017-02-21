@@ -26,6 +26,7 @@
 package com.daimajia.androidanimations.library;
 
 import android.animation.Animator;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.animation.Interpolator;
 
@@ -38,6 +39,7 @@ public class YoYo {
     private static final long DURATION = BaseViewAnimator.DURATION;
     private static final long NO_DELAY = 0;
     public static final int INFINITE = -1;
+    public static final float CENTER_PIVOT = Float.MAX_VALUE;
 
     private BaseViewAnimator animator;
     private long duration;
@@ -45,6 +47,7 @@ public class YoYo {
     private boolean repeat;
     private long repeatTimes;
     private Interpolator interpolator;
+    private float pivotX, pivotY;
     private List<Animator.AnimatorListener> callbacks;
     private View target;
 
@@ -55,6 +58,8 @@ public class YoYo {
         repeat = animationComposer.repeat;
         repeatTimes = animationComposer.repeatTimes;
         interpolator = animationComposer.interpolator;
+        pivotX = animationComposer.pivotX;
+        pivotY = animationComposer.pivotY;
         callbacks = animationComposer.callbacks;
         target = animationComposer.target;
     }
@@ -96,9 +101,11 @@ public class YoYo {
 
         private BaseViewAnimator animator;
         private long duration = DURATION;
+
         private long delay = NO_DELAY;
         private boolean repeat = false;
         private long repeatTimes = 0;
+        private float pivotX = YoYo.CENTER_PIVOT, pivotY = YoYo.CENTER_PIVOT;
         private Interpolator interpolator;
         private View target;
 
@@ -122,6 +129,22 @@ public class YoYo {
 
         public AnimationComposer interpolate(Interpolator interpolator) {
             this.interpolator = interpolator;
+            return this;
+        }
+
+        public AnimationComposer pivot(float pivotX, float pivotY) {
+            this.pivotX = pivotX;
+            this.pivotY = pivotY;
+            return this;
+        }
+
+        public AnimationComposer pivotX(float pivotX) {
+            this.pivotX = pivotX;
+            return this;
+        }
+
+        public AnimationComposer pivotY(float pivotY) {
+            this.pivotY = pivotY;
             return this;
         }
 
@@ -209,6 +232,10 @@ public class YoYo {
             return animator.isRunning();
         }
 
+        public void stop() {
+            stop(true);
+        }
+
         public void stop(boolean reset) {
             animator.cancel();
 
@@ -221,6 +248,18 @@ public class YoYo {
 
     private BaseViewAnimator play() {
         animator.setTarget(target);
+
+        if (pivotX == YoYo.CENTER_PIVOT) {
+            ViewCompat.setPivotX(target, target.getMeasuredWidth() / 2.0f);
+        } else {
+            target.setPivotX(pivotX);
+        }
+        if (pivotY == YoYo.CENTER_PIVOT) {
+            ViewCompat.setPivotY(target, target.getMeasuredHeight() / 2.0f);
+        } else {
+            target.setPivotY(pivotY);
+        }
+
         animator.setDuration(duration)
                 .setInterpolator(interpolator)
                 .setStartDelay(delay);

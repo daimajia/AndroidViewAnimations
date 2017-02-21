@@ -36,6 +36,7 @@ public abstract class BaseViewAnimator {
     public static final long DURATION = 1000;
 
     private AnimatorSet mAnimatorSet;
+
     private long mDuration = DURATION;
 
     {
@@ -74,8 +75,6 @@ public abstract class BaseViewAnimator {
         ViewCompat.setRotation(target, 0);
         ViewCompat.setRotationY(target, 0);
         ViewCompat.setRotationX(target, 0);
-        ViewCompat.setPivotX(target, target.getMeasuredWidth() / 2.0f);
-        ViewCompat.setPivotY(target, target.getMeasuredHeight() / 2.0f);
     }
 
     /**
