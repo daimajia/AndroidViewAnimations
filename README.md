@@ -93,12 +93,12 @@ YoYo.with(Techniques.Tada)
 
 Welcome contribute your amazing animation effect. :-D
 
-#Thanks
+# Thanks
 
 - [AFViewShaker](https://github.com/ArtFeel/AFViewShaker)
 - [Animate.css](https://github.com/daneden/animate.css)
 
-#About me
+# About me
 
 A student in mainland China. 
 
