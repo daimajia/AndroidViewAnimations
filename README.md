@@ -2,6 +2,9 @@
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/daimajia/AndroidViewAnimations?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+
+[![Insight.io](https://insight.io/repoBadge/github.com/daimajia/AndroidViewAnimations)](https://insight.io/github.com/daimajia/AndroidViewAnimations)
+
 One day, I saw [an iOS library](https://github.com/ArtFeel/AFViewShaker), which is a view shaker, it's very beautiful. I think Android also need one, and should be better.
 
 So, I started to collect animation effects... and in two days, this project born.
