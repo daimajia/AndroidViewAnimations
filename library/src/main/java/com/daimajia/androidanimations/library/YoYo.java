@@ -26,6 +26,7 @@
 package com.daimajia.androidanimations.library;
 
 import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -45,7 +46,8 @@ public class YoYo {
     private long duration;
     private long delay;
     private boolean repeat;
-    private long repeatTimes;
+    private int repeatTimes;
+    private int repeatMode;
     private Interpolator interpolator;
     private float pivotX, pivotY;
     private List<Animator.AnimatorListener> callbacks;
@@ -57,6 +59,7 @@ public class YoYo {
         delay = animationComposer.delay;
         repeat = animationComposer.repeat;
         repeatTimes = animationComposer.repeatTimes;
+        repeatMode = animationComposer.repeatMode;
         interpolator = animationComposer.interpolator;
         pivotX = animationComposer.pivotX;
         pivotY = animationComposer.pivotY;
@@ -96,7 +99,6 @@ public class YoYo {
 
     public static final class AnimationComposer {
 
-
         private List<Animator.AnimatorListener> callbacks = new ArrayList<>();
 
         private BaseViewAnimator animator;
@@ -104,7 +106,8 @@ public class YoYo {
 
         private long delay = NO_DELAY;
         private boolean repeat = false;
-        private long repeatTimes = 0;
+        private int repeatTimes = 0;
+        private int repeatMode = ValueAnimator.RESTART;
         private float pivotX = YoYo.CENTER_PIVOT, pivotY = YoYo.CENTER_PIVOT;
         private Interpolator interpolator;
         private View target;
@@ -148,7 +151,6 @@ public class YoYo {
             return this;
         }
 
-
         public AnimationComposer repeat(int times) {
             if (times < INFINITE) {
                 throw new RuntimeException("Can not be less than -1, -1 is infinite loop");
@@ -158,6 +160,10 @@ public class YoYo {
             return this;
         }
 
+        public AnimationComposer repeatMode(int mode) {
+            repeatMode = mode;
+            return this;
+        }
 
         public AnimationComposer withListener(Animator.AnimatorListener listener) {
             callbacks.add(listener);
@@ -242,9 +248,7 @@ public class YoYo {
             if (reset)
                 animator.reset(target);
         }
-
     }
-
 
     private BaseViewAnimator play() {
         animator.setTarget(target);
@@ -261,6 +265,8 @@ public class YoYo {
         }
 
         animator.setDuration(duration)
+                .setRepeatTimes(repeatTimes)
+                .setRepeatMode(repeatMode)
                 .setInterpolator(interpolator)
                 .setStartDelay(delay);
 
@@ -269,39 +275,6 @@ public class YoYo {
                 animator.addAnimatorListener(callback);
             }
         }
-
-        if (repeat) {
-            animator.addAnimatorListener(new Animator.AnimatorListener() {
-
-                private long currentTimes = 0;
-
-                @Override
-                public void onAnimationStart(Animator animation) {
-                    currentTimes++;
-                }
-
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    if (!repeat) {
-                        return;
-                    }
-                    if (repeatTimes == INFINITE || currentTimes < repeatTimes) {
-                        animator.restart();
-                    }
-                }
-
-                @Override
-                public void onAnimationCancel(Animator animation) {
-                    repeatTimes = 0;
-                    repeat = false;
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator animation) {
-                }
-            });
-        }
-
         animator.animate();
         return animator;
     }

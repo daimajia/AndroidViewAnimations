@@ -26,6 +26,7 @@ package com.daimajia.androidanimations.library;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -38,6 +39,8 @@ public abstract class BaseViewAnimator {
     private AnimatorSet mAnimatorSet;
 
     private long mDuration = DURATION;
+    private int mRepeatTimes = 0;
+    private int mRepeatMode = ValueAnimator.RESTART;
 
     {
         mAnimatorSet = new AnimatorSet();
@@ -81,6 +84,12 @@ public abstract class BaseViewAnimator {
      * start to animate
      */
     public void start() {
+        for (Animator animator : mAnimatorSet.getChildAnimations()) {
+            if (animator instanceof ValueAnimator) {
+                ((ValueAnimator) animator).setRepeatCount(mRepeatTimes);
+                ((ValueAnimator) animator).setRepeatMode(mRepeatMode);
+            }
+        }
         mAnimatorSet.setDuration(mDuration);
         mAnimatorSet.start();
     }
@@ -137,4 +146,13 @@ public abstract class BaseViewAnimator {
         return mAnimatorSet;
     }
 
+    public BaseViewAnimator setRepeatTimes(int repeatTimes) {
+        mRepeatTimes = repeatTimes;
+        return this;
+    }
+
+    public BaseViewAnimator setRepeatMode(int repeatMode) {
+        mRepeatMode = repeatMode;
+        return this;
+    }
 }
