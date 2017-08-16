@@ -35,7 +35,7 @@ public class TadaAnimator extends BaseViewAnimator {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "scaleX", 1, 0.9f, 0.9f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1),
                 ObjectAnimator.ofFloat(target, "scaleY", 1, 0.9f, 0.9f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1),
-                ObjectAnimator.ofFloat(target, "rotation", 0, -3, -3, 3, -3, 3, -3, 3, -3, 0)
+                ObjectAnimator.ofFloat(target, "rotation", target.getTranslationX() + 0, target.getTranslationX() - 3, target.getTranslationX() - 3, target.getTranslationX() + 3, target.getTranslationX() - 3, target.getTranslationX() + 3, target.getTranslationX() - 3, target.getTranslationX() + 3, target.getTranslationX() - 3, target.getTranslationX() + 0)
         );
     }
 }
