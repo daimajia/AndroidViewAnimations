@@ -92,7 +92,7 @@ afterEvaluate { project ->
         sign configurations.archives
     }
 
-    task apklib(type: Zip){
+    task apklib(type: Zip) {
         appendix = extension = 'apklib'
 
         from 'AndroidManifest.xml'
@@ -110,7 +110,7 @@ afterEvaluate { project ->
 
     task androidJavadocs(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
-        classpath += project.files(android.getBootClasspath() .join(File.pathSeparator))
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     }
 
     task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {

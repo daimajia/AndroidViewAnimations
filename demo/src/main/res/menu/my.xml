@@ -1,9 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MyActivity" >
-    <item android:id="@+id/action_settings"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MyActivity">
+    <item
+        android:id="@+id/action_settings"
         android:title="@string/action_example"
         android:orderInCategory="100"
-        android:showAsAction="always" />
+        android:showAsAction="always"/>
 </menu>

@@ -1,4 +1,3 @@
-
 /*
  * The MIT License (MIT)
  *
@@ -167,10 +166,9 @@ public enum Techniques {
     ZoomOutUp(ZoomOutUpAnimator.class);
 
 
-
     private Class animatorClazz;
 
-    private Techniques(Class clazz) {
+    Techniques(Class clazz) {
         animatorClazz = clazz;
     }
 

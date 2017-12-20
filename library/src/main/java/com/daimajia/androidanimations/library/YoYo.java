@@ -1,4 +1,3 @@
-
 /*
  * The MIT License (MIT)
  *
@@ -30,7 +29,6 @@ import android.animation.ValueAnimator;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.animation.Interpolator;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +74,7 @@ public class YoYo {
     }
 
     public interface AnimatorCallback {
-        public void call(Animator animator);
+        void call(Animator animator);
     }
 
     private static class EmptyAnimatorListener implements Animator.AnimatorListener {

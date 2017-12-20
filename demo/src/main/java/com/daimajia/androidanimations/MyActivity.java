@@ -27,7 +27,7 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
-        mListView = (ListView) findViewById(R.id.list_items);
+        mListView = findViewById(R.id.list_items);
         mTarget = findViewById(R.id.hello_world);
 
         mAdapter = new EffectAdapter(this);
