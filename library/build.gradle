@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.2"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 31
         versionName "2.3"
     }
@@ -21,6 +21,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.daimajia.easing:library:2.0@aar'
-    compile 'com.android.support:support-compat:25.1.1'
+    compile 'com.android.support:support-compat:27.0.2'
 }
 apply from: './gradle-mvn-push.gradle'
