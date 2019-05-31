@@ -1,10 +1,5 @@
 # Android View Animations [![Build Status](https://travis-ci.org/daimajia/AndroidViewAnimations.svg)](https://travis-ci.org/daimajia/AndroidViewAnimations)
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/daimajia/AndroidViewAnimations?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-
-[![Insight.io](https://insight.io/repoBadge/github.com/daimajia/AndroidViewAnimations)](https://insight.io/github.com/daimajia/AndroidViewAnimations)
-
 One day, I saw [an iOS library](https://github.com/ArtFeel/AFViewShaker), which is a view shaker, it's very beautiful. I think Android also need one, and should be better.
 
 So, I started to collect animation effects... and in two days, this project born.
@@ -101,9 +96,19 @@ Welcome contribute your amazing animation effect. :-D
 - [AFViewShaker](https://github.com/ArtFeel/AFViewShaker)
 - [Animate.css](https://github.com/daneden/animate.css)
 
+# Why YoYo?
+
+YoYo is a [toy](https://en.wikipedia.org/wiki/Yo-yo), with a lot of [Techniques](./library/src/main/java/com/daimajia/androidanimations/library/Techniques.java).
+
 # About me
 
-A student in mainland China. 
+(2013)
+A student in mainland China.
 
 Welcome to [offer me an internship](mailto:daimajia@gmail.com).
 If you have any new idea about this project, feel free to [contact me](mailto:daimajia@gmail.com).
+
+(2019)
+Five years later, now I become an investment associate in China.
+
+Welcome to send your business plan to [me](mailto:daimajia@gmail.com). Maybe I would have a better understanding on your startup project than others. Trust me.
