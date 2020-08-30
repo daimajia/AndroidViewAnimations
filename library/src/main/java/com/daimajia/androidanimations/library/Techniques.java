@@ -51,6 +51,7 @@ import com.daimajia.androidanimations.library.fading_exits.FadeOutLeftAnimator;
 import com.daimajia.androidanimations.library.fading_exits.FadeOutRightAnimator;
 import com.daimajia.androidanimations.library.fading_exits.FadeOutUpAnimator;
 import com.daimajia.androidanimations.library.flippers.FlipInXAnimator;
+import com.daimajia.androidanimations.library.flippers.FlipInYAnimator;
 import com.daimajia.androidanimations.library.flippers.FlipOutXAnimator;
 import com.daimajia.androidanimations.library.flippers.FlipOutYAnimator;
 import com.daimajia.androidanimations.library.rotating_entrances.RotateInAnimator;
@@ -74,6 +75,9 @@ import com.daimajia.androidanimations.library.sliders.SlideOutUpAnimator;
 import com.daimajia.androidanimations.library.specials.HingeAnimator;
 import com.daimajia.androidanimations.library.specials.RollInAnimator;
 import com.daimajia.androidanimations.library.specials.RollOutAnimator;
+import com.daimajia.androidanimations.library.specials.in.DropOutAnimator;
+import com.daimajia.androidanimations.library.specials.in.LandingAnimator;
+import com.daimajia.androidanimations.library.specials.out.TakingOffAnimator;
 import com.daimajia.androidanimations.library.zooming_entrances.ZoomInAnimator;
 import com.daimajia.androidanimations.library.zooming_entrances.ZoomInDownAnimator;
 import com.daimajia.androidanimations.library.zooming_entrances.ZoomInLeftAnimator;
@@ -86,6 +90,10 @@ import com.daimajia.androidanimations.library.zooming_exits.ZoomOutRightAnimator
 import com.daimajia.androidanimations.library.zooming_exits.ZoomOutUpAnimator;
 
 public enum Techniques {
+
+    DropOut(DropOutAnimator.class),
+    Landing(LandingAnimator.class),
+    TakingOff(TakingOffAnimator.class),
 
     Flash(FlashAnimator.class),
     Pulse(PulseAnimator.class),
@@ -122,7 +130,7 @@ public enum Techniques {
 
     FlipInX(FlipInXAnimator.class),
     FlipOutX(FlipOutXAnimator.class),
-
+    FlipInY(FlipInYAnimator.class),
     FlipOutY(FlipOutYAnimator.class),
     RotateIn(RotateInAnimator.class),
     RotateInDownLeft(RotateInDownLeftAnimator.class),
@@ -157,6 +165,8 @@ public enum Techniques {
     ZoomOutLeft(ZoomOutLeftAnimator.class),
     ZoomOutRight(ZoomOutRightAnimator.class),
     ZoomOutUp(ZoomOutUpAnimator.class);
+
+
 
     private Class animatorClazz;
 

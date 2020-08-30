@@ -40,7 +40,7 @@ public class EffectAdapter extends BaseAdapter {
         int start = o.getClass().getName().lastIndexOf(".") + 1;
         String name = o.getClass().getName().substring(start);
         t.setText(name);
-        v.setTag(o);
+        v.setTag(Techniques.values()[position]);
         return v;
     }
 }

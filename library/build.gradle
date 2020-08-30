@@ -1,26 +1,27 @@
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
 
     defaultConfig {
-        applicationId "com.daimajia.androidanimations.library"
-        minSdkVersion 8
-        targetSdkVersion 19
-        versionCode 6
-        versionName "1.0.5"
+        minSdkVersion MIN_SDK_VERSION.toInteger()
+        targetSdkVersion TARGET_SDK_VERSION.toInteger()
+        versionCode VERSION_CODE.toInteger()
+        versionName VERSION_NAME
     }
+
     buildTypes {
         release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.nineoldandroids:library:2.4.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.daimajia.easing:library:2.4@aar'
+    implementation 'androidx.core:core:1.3.1'
 }
+
 apply from: './gradle-mvn-push.gradle'

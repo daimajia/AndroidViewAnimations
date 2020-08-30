@@ -22,24 +22,19 @@
  * SOFTWARE.
  */
 
-package com.daimajia.androidanimations.library.easing_functions.expo;
+package com.daimajia.androidanimations.library.flippers;
 
-import com.daimajia.androidanimations.library.easing_functions.BaseEasingMethod;
+import android.animation.ObjectAnimator;
+import android.view.View;
 
-public class ExpoEaseInOut extends BaseEasingMethod{
-    public ExpoEaseInOut(float duration) {
-        super(duration);
-    }
+import com.daimajia.androidanimations.library.BaseViewAnimator;
 
+public class FlipInYAnimator extends BaseViewAnimator {
     @Override
-    public float getInterpolation(float input) {
-        if(input == 1 || input == 0){
-            return input;
-        }
-        float x = input * 2;
-        if(x < 1)
-            return (float)Math.pow(2, 10 * (input - 1)) / 2;
-        else
-            return (-(float)Math.pow(2, -10 * input) + 1) / 2;
+    public void prepare(View target) {
+        getAnimatorAgent().playTogether(
+                ObjectAnimator.ofFloat(target, "rotationY", 90, -15, 15, 0),
+                ObjectAnimator.ofFloat(target, "alpha", 0.25f, 0.5f, 0.75f, 1)
+        );
     }
 }

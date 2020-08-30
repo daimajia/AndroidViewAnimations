@@ -24,19 +24,23 @@
 
 package com.daimajia.androidanimations.library;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.animation.Interpolator;
 
-import com.nineoldandroids.animation.Animator.AnimatorListener;
-import com.nineoldandroids.animation.AnimatorSet;
-import com.nineoldandroids.view.ViewHelper;
+import androidx.core.view.ViewCompat;
 
 public abstract class BaseViewAnimator {
 
     public static final long DURATION = 1000;
 
     private AnimatorSet mAnimatorSet;
+
     private long mDuration = DURATION;
+    private int mRepeatTimes = 0;
+    private int mRepeatMode = ValueAnimator.RESTART;
 
     {
         mAnimatorSet = new AnimatorSet();
@@ -45,9 +49,18 @@ public abstract class BaseViewAnimator {
 
     protected abstract void prepare(View target);
 
-    public void animate(View target) {
+    public BaseViewAnimator setTarget(View target) {
         reset(target);
         prepare(target);
+        return this;
+    }
+
+    public void animate() {
+        start();
+    }
+
+    public void restart() {
+        mAnimatorSet = mAnimatorSet.clone();
         start();
     }
 
@@ -57,22 +70,26 @@ public abstract class BaseViewAnimator {
      * @param target
      */
     public void reset(View target) {
-        ViewHelper.setAlpha(target, 1);
-        ViewHelper.setScaleX(target, 1);
-        ViewHelper.setScaleY(target, 1);
-        ViewHelper.setTranslationX(target, 0);
-        ViewHelper.setTranslationY(target, 0);
-        ViewHelper.setRotation(target, 0);
-        ViewHelper.setRotationY(target, 0);
-        ViewHelper.setRotationX(target, 0);
-        ViewHelper.setPivotX(target, target.getMeasuredWidth() / 2.0f);
-        ViewHelper.setPivotY(target, target.getMeasuredHeight() / 2.0f);
+        ViewCompat.setAlpha(target, 1);
+        ViewCompat.setScaleX(target, 1);
+        ViewCompat.setScaleY(target, 1);
+        ViewCompat.setTranslationX(target, 0);
+        ViewCompat.setTranslationY(target, 0);
+        ViewCompat.setRotation(target, 0);
+        ViewCompat.setRotationY(target, 0);
+        ViewCompat.setRotationX(target, 0);
     }
 
     /**
      * start to animate
      */
     public void start() {
+        for (Animator animator : mAnimatorSet.getChildAnimations()) {
+            if (animator instanceof ValueAnimator) {
+                ((ValueAnimator) animator).setRepeatCount(mRepeatTimes);
+                ((ValueAnimator) animator).setRepeatMode(mRepeatMode);
+            }
+        }
         mAnimatorSet.setDuration(mDuration);
         mAnimatorSet.start();
     }
@@ -91,12 +108,24 @@ public abstract class BaseViewAnimator {
         return mAnimatorSet.getStartDelay();
     }
 
-    public BaseViewAnimator addAnimatorListener(AnimatorListener l) {
+    public BaseViewAnimator addAnimatorListener(Animator.AnimatorListener l) {
         mAnimatorSet.addListener(l);
         return this;
     }
 
-    public void removeAnimatorListener(AnimatorListener l) {
+    public void cancel() {
+        mAnimatorSet.cancel();
+    }
+
+    public boolean isRunning() {
+        return mAnimatorSet.isRunning();
+    }
+
+    public boolean isStarted() {
+        return mAnimatorSet.isStarted();
+    }
+
+    public void removeAnimatorListener(Animator.AnimatorListener l) {
         mAnimatorSet.removeListener(l);
     }
 
@@ -110,11 +139,20 @@ public abstract class BaseViewAnimator {
     }
 
     public long getDuration() {
-        return mAnimatorSet.getDuration();
+        return mDuration;
     }
 
     public AnimatorSet getAnimatorAgent() {
         return mAnimatorSet;
     }
 
+    public BaseViewAnimator setRepeatTimes(int repeatTimes) {
+        mRepeatTimes = repeatTimes;
+        return this;
+    }
+
+    public BaseViewAnimator setRepeatMode(int repeatMode) {
+        mRepeatMode = repeatMode;
+        return this;
+    }
 }

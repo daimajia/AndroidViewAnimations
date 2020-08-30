@@ -24,12 +24,12 @@
 
 package com.daimajia.androidanimations.library.rotating_entrances;
 
+import android.animation.ObjectAnimator;
 import android.view.View;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
-public class RotateInUpRightAnimator extends BaseViewAnimator{
+public class RotateInUpRightAnimator extends BaseViewAnimator {
     @Override
     public void prepare(View target) {
         float x = target.getWidth() - target.getPaddingRight();

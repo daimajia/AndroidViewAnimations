@@ -24,17 +24,17 @@
 
 package com.daimajia.androidanimations.library.sliders;
 
+import android.animation.ObjectAnimator;
 import android.view.View;
 
 import com.daimajia.androidanimations.library.BaseViewAnimator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 public class SlideOutLeftAnimator extends BaseViewAnimator {
     @Override
-    protected void prepare(View target) {
+    public void prepare(View target) {
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "alpha", 1, 0),
-                ObjectAnimator.ofFloat(target,"translationX",0,-2000)
+                ObjectAnimator.ofFloat(target, "translationX", 0, -target.getRight())
         );
     }
 }
