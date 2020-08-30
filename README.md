@@ -20,28 +20,16 @@ For making animations more real, I created another project named [Android Easing
 #### Gradle
 ```groovy
 dependencies {
-        compile 'com.android.support:support-compat:25.1.1'
-        compile 'com.daimajia.easing:library:2.0@aar'
-        compile 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
 }
 ```
 #### Maven
 
 ```xml
 <dependency>
-    <groupId>com.android.support</groupId>
-    <artifactId>support-compat</artifactId>
-    <version>25.1.1</version>
-</dependency>
-<dependency>
     <groupId>com.daimajia.androidanimation</groupId>
     <artifactId>library</artifactId>
-    <version>2.3</version>
-</dependency>
-<dependency>
-    <groupId>com.daimajia.easing</groupId>
-    <artifactId>library</artifactId>
-    <version>2.0</version>
+    <version>2.4</version>
 </dependency>
 ```
 

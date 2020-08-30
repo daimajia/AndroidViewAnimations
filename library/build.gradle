@@ -1,14 +1,15 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 25
-        versionCode 31
-        versionName "2.3"
+        minSdkVersion MIN_SDK_VERSION.toInteger()
+        targetSdkVersion TARGET_SDK_VERSION.toInteger()
+        versionCode VERSION_CODE.toInteger()
+        versionName VERSION_NAME
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -19,7 +20,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.daimajia.easing:library:2.0@aar'
-    implementation 'com.android.support:support-compat:25.4.0'
+    implementation 'com.daimajia.easing:library:2.4@aar'
+    implementation 'androidx.core:core:1.3.1'
 }
+
 apply from: './gradle-mvn-push.gradle'
