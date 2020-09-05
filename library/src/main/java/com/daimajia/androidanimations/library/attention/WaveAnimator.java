@@ -36,7 +36,7 @@ public class WaveAnimator extends BaseViewAnimator {
                 + target.getPaddingLeft();
         float y = target.getHeight() - target.getPaddingBottom();
         getAnimatorAgent().playTogether(
-                ObjectAnimator.ofFloat(target, "rotation", 12, -12, 3, -3, 0),
+                ObjectAnimator.ofFloat(target, "rotation", target.getRotation() + 12, target.getRotation() - 12, target.getRotation() + 3, target.getRotation() - 3, target.getRotation() + 0),
                 ObjectAnimator.ofFloat(target, "pivotX", x, x, x, x, x),
                 ObjectAnimator.ofFloat(target, "pivotY", y, y, y, y, y)
         );

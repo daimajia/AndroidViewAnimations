@@ -35,8 +35,8 @@ public class WobbleAnimator extends BaseViewAnimator {
         float width = target.getWidth();
         float one = (float) (width / 100.0);
         getAnimatorAgent().playTogether(
-                ObjectAnimator.ofFloat(target, "translationX", 0 * one, -25 * one, 20 * one, -15 * one, 10 * one, -5 * one, 0 * one, 0),
-                ObjectAnimator.ofFloat(target, "rotation", 0, -5, 3, -3, 2, -1, 0)
+                ObjectAnimator.ofFloat(target, "translationX", target.getTranslationX() + (0 * one), target.getTranslationX() + (-25 * one), target.getTranslationX() + (20 * one), target.getTranslationX() + (-15 * one), target.getTranslationX() + (10 * one), target.getTranslationX() + (-5 * one), target.getTranslationX() + (0 * one), target.getTranslationX() + 0),
+                ObjectAnimator.ofFloat(target, "rotation", target.getRotation() + 0, target.getRotation() - 5, target.getRotation() + 3, target.getRotation() - 3, target.getRotation() + 2, target.getRotation() - 1, target.getRotation() + 0)
         );
     }
 }
