@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +28,7 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
-        mListView = (ListView) findViewById(R.id.list_items);
+        mListView = findViewById(R.id.list_items);
         mTarget = findViewById(R.id.hello_world);
 
         mAdapter = new EffectAdapter(this);
@@ -41,9 +42,9 @@ public class MyActivity extends Activity {
                 }
                 Techniques technique = (Techniques) view.getTag();
                 rope = YoYo.with(technique)
-                        .duration(1200)
+                        .duration(2000)
                         .repeat(YoYo.INFINITE)
-                        .pivot(YoYo.CENTER_PIVOT, YoYo.CENTER_PIVOT)
+                        .pivot(YoYo.CENTER_PIVOT, view.getMeasuredHeight())
                         .interpolate(new AccelerateDecelerateInterpolator())
                         .withListener(new Animator.AnimatorListener() {
                             @Override
@@ -72,7 +73,7 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (rope != null) {
-                    rope.stop(true);
+                    rope.stop(false);
                 }
             }
         });

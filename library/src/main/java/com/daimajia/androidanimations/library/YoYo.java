@@ -76,7 +76,7 @@ public class YoYo {
     }
 
     public interface AnimatorCallback {
-        public void call(Animator animator);
+        void call(Animator animator);
     }
 
     private static class EmptyAnimatorListener implements Animator.AnimatorListener {
