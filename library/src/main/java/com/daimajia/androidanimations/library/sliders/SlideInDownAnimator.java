@@ -32,7 +32,7 @@ import com.daimajia.androidanimations.library.BaseViewAnimator;
 public class SlideInDownAnimator extends BaseViewAnimator {
     @Override
     public void prepare(View target) {
-        int distance = target.getTop() + target.getHeight();
+        int distance = target.getHeight();
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "alpha", 0, 1),
                 ObjectAnimator.ofFloat(target, "translationY", -distance, 0)

@@ -14,7 +14,7 @@ public class ExampleActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.example);
 
-        final TextView t = (TextView) findViewById(R.id.notice);
+        final TextView t = findViewById(R.id.notice);
         t.setText("Please input your Email and Password");
 
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
@@ -29,7 +29,7 @@ public class ExampleActivity extends Activity {
             }
         });
 
-        final TextView t2 = (TextView) findViewById(R.id.notice2);
+        final TextView t2 = findViewById(R.id.notice2);
         t2.setText("Please input your Email and Password");
 
         findViewById(R.id.submit2).setOnClickListener(new View.OnClickListener() {

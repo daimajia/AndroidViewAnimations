@@ -33,11 +33,10 @@ import com.daimajia.androidanimations.library.BaseViewAnimator;
 public class SlideOutDownAnimator extends BaseViewAnimator {
     @Override
     public void prepare(View target) {
-        ViewGroup parent = (ViewGroup) target.getParent();
-        int distance = parent.getHeight() - target.getTop();
+        int distance = target.getHeight();
         getAnimatorAgent().playTogether(
                 ObjectAnimator.ofFloat(target, "alpha", 1, 0),
-                ObjectAnimator.ofFloat(target, "translationY", 0, distance)
+                ObjectAnimator.ofFloat(target, "translationY", -distance, 0)
         );
     }
 }
