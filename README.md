@@ -45,7 +45,7 @@ YoYo.with(Techniques.Tada)
 ```
 
 ### Effects
-#### Attension
+#### Attention
 `Flash`, `Pulse`, `RubberBand`, `Shake`, `Swing`, `Wobble`, `Bounce`, `Tada`, `StandUp`, `Wave`
 
 #### Special
