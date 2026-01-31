@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,14 +18,34 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:hint="Username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/custom_edit_text"
+                android:hint="USERNAME"
+                android:paddingBottom="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#C1C1C1"
+                />
 
             <EditText
-                android:hint="Password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edit_text"
+                android:hint="PASSWORD"
+                android:paddingBottom="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#C1C1C1"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/notice2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -33,34 +54,53 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/notice2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
             <Button
                 android:id="@+id/submit2"
-                android:text="Submit"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_background"
+                android:padding="15dp"
+                android:text="Submit"
+                android:textSize="14sp"
+                android:textColor="#FFFF"
+                android:typeface="serif" />
         </LinearLayout>
 
         <LinearLayout
             android:padding="@dimen/activity_horizontal_margin"
             android:id="@+id/edit_area"
+            android:layout_marginTop="32dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
                 android:hint="Username"
+                android:textColorHint="#C1C1C1"
+                android:paddingBottom="10dp"
+                android:background="@drawable/custom_edit_text"
+
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
                 android:hint="Password"
+                android:textColorHint="#C1C1C1"
+                android:paddingBottom="10dp"
+                android:background="@drawable/custom_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -69,16 +109,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/notice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
             <Button
                 android:id="@+id/submit"
                 android:text="Submit"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_background"
+                android:padding="15dp"
+                android:textSize="14sp"
+                android:textColor="#FFFF"
+                android:typeface="serif"/>
         </LinearLayout>
 
     </LinearLayout>
